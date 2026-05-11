@@ -3,16 +3,62 @@
 
 <head>
 <meta charset="utf-8">
+
+<style> 
+body{  
+    margin:0px;
+}
+
+header{
+    background-color: crimson;
+    color:cornsilk;
+    text-align:center;
+    padding: 10px;
+    margin:0px;
+}
+
+.link{
+    color: white;
+    background-color:crimson;
+    text-decoration:none; 
+
+    border: 2px solid black;
+border-radius: 5px;
+
+    display:inline-block;
+    margin: 20px;
+    padding: 5px;
+    transition-duration: 0.5s;
+
+}
+
+
+.link:hover{
+     color: rgb(160, 0, 0);
+    background-color: rgb(255, 198, 210);
+    border-radius: 20px;
+    transition-duration: 0.5s;
+}
+
+</style>
 </head>
 
 <body>
     <header>
-        <h1>Pierwsza strona</h1>
+        <h1>Pierwsza strona HEEEY</h1>
         </h1>
+
+<a href="podstrona.html">link do podstrony</a>
+<br>
+<button oneclick="location.href='podstrona.html'">button do podstrony</button>
+
         <img src="grafika/cat1.jpg" alt="cat1.jpg" width="400" height="300">
     </header>
+<a class="link" href="podstrona.html">link do podstrony</a>
+    <div class="text-panel">
+        <h2 style="text-align: center;">Lorem costam</h2>
         <p>repellendusbla bla bla  quos! Consectetur,<br> consequuntur expedita debitis quae veritatis <br>quia laudantium excepturi doloremque
-        eius ut facilis vero.</p>
+        eius ut facilis vero.</p></div>
     <footer>
 
     </footer>

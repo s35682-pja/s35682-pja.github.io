@@ -1,107 +1,182 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
 <meta charset="utf-8">
 <title>Strona Główna</title>
-
-
-
 <style>
-       /* Styl dla tła całej strony */
-       body {
-           background-color: black;
-           margin: 0px;
-           color: white;
-           font-family: Arial, sans-serif;
-       }
-       /* Styl dla kontenera nagłówka */
-       header {
-           position: relative;
-           width: 100%;
-           height: 500px; /* Wysokość Twojego filmu na stronie */
-           overflow: hidden;
-           margin: 0px;
-       }
-       /* Styl dla rozmytego filmu w tle */
-       .video-tlo {
-           position: absolute;
-           top: 50%;
-           left: 50%;
-           transform: translate(-50%, -50%) scale(1.1);
-           min-width: 100%;
-           min-height: 100%;
-           object-fit: cover;
-           z-index: 1;
-           filter: blur(5px);
-       }
-       /* Styl dla menu nawigacyjnego na filmie */
-       .menu-gorne {
-           position: absolute;
-           top: 30px;
-           right: 0;
-           text-align: right;
-           padding-right: 50px;
-           z-index: 10;
-           width: 100%;
-           
-         
-
-           
-       }
-       /* Styl dla samych linków w menu */
-       .menu-link {
-           color: white;
-           text-decoration: none;
-           text-transform: uppercase;
-           font-size: 18px;
-           font-family: 'Arial Black', Gadget, sans-serif;
-           letter-spacing: 1px;
-           transition: color 0.3s ease;
-           margin: 0 12px;
-           display: inline-block;
-       }
-       /* Efekt najechania myszką na link */
-       .menu-link:hover {
-           color: #ff0000; /* Kolor czerwony */
-           cursor: pointer;
-       }
-       /* Styl dla kresek rozdzielających linki */
-       .separator {
-           color: white;
-           font-size: 18px;
-           font-family: 'Arial Black', Gadget, sans-serif;
-       }
-       /* Twoje pozostałe style dla dolnej części strony */
-       .link {
-           color: white;
-           background-color: crimson;
-           text-decoration: none;
-           border: 2px solid black;
-           border-radius: 5px;
-           display: inline-block;
-           margin: 20px;
-           padding: 5px;
-           transition-duration: 0.5s;
-       }
-       .link:hover {
-           color: rgb(160, 0, 0);
-           background-color: rgb(255, 198, 210);
-           border-radius: 20px;
-           transition-duration: 0.5s;
-       }
-       .text-panel {
-           text-align: center;
-           padding: 20px;
-       }
+      /* tlo strony i czcionka */
+      body {
+          background-color: black;
+          margin: 0px;
+          color: white;
+          font-family: Arial, sans-serif;
+      }
+      /* ten duzy boks na samej gorze */
+      header {
+          position: relative;
+          width: 100%;
+          height: 500px;
+          overflow: hidden;
+          margin: 0px;
+      }
+      /* ustawienia filmu zeby sie nie rozjechal i byl rozmyty */
+      .video-tlo {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(1.1);
+          min-width: 100%;
+          min-height: 100%;
+          object-fit: cover;
+          z-index: 1;
+          filter: blur(5px);
+      }
+      /* --- WERSJA NA KOMPUTER --- */
+      /* chowanie przyciskow z menu telerona na kompie */
+      .hamburger, .close-btn {
+          display: none;
+      }
+      
+      .menu-gorne {
+          position: absolute;
+          top: 30px;
+          right: 0;
+          text-align: right;
+          padding-right: 50px;
+          z-index: 10;
+          width: 100%;
+      }
+      
+      .ukryty-naglowek {
+          display: none;
+      }
+      /*  linki w menu */
+      .menu-link {
+          color: white;
+          text-decoration: none;
+          text-transform: uppercase;
+          font-size: 18px;
+          font-family: 'Arial Black', Gadget, sans-serif;
+          letter-spacing: 1px;
+          transition: color 0.3s ease;
+          margin: 0 12px;
+          display: inline-block;
+      }
+      /* zeby robily sie czarne jak sie najedzie myszka */
+      .menu-link:hover {
+          color: #000000;
+          cursor: pointer;
+      }
+      /* te kreski miedzy napisami */
+      .separator {
+          color: white;
+          font-size: 18px;
+          font-family: 'Arial Black', Gadget, sans-serif;
+      }
+      /* --- WERSJA NA TELEFON --- */
+      @media (max-width: 768px) {
+          /* wyglad przycisku menu na fonie */
+          .hamburger {
+              display: block;
+              position: absolute;
+              top: 20px;
+              right: 20px;
+              z-index: 15;
+              background: rgba(0, 0, 0, 0.8);
+              color: white;
+              border: 1px solid white;
+              padding: 10px 15px;
+              font-family: 'Arial Black', sans-serif;
+              font-size: 14px;
+              cursor: pointer;
+          }
+          /* przycisk do zamykania menu */
+          .close-btn {
+              display: block;
+              align-self: flex-end;
+              background: none;
+              border: none;
+              color: white;
+              font-size: 35px;
+              cursor: pointer;
+              margin-bottom: 40px;
+              font-family: Arial, sans-serif;
+          }
+          /* cale menu zmienia sie w pionowy boks na caly ekran telefonu */
+          .menu-gorne {
+              display: none; /* na start ma byc schowane */
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: center;
+              position: fixed;
+              top: 0;
+              right: 0;
+              width: 100%;
+              height: 100vh;
+              background-color: rgba(0, 0, 0, 0.95);
+              padding: 30px;
+              box-sizing: border-box;
+              z-index: 100;
+              text-align: center;
+              padding-right: 30px;
+          }
+          /* to sie wlacza skryptem zeby pokazac menu */
+          .menu-gorne.active {
+              display: flex;
+          }
+          /* chowanie kresek na telefonie bo napisy beda w pionie */
+          .separator {
+              display: none;
+          }
+          /* powiekszenie linkow na telefonie zeby sie dobrze klikalo palcem */
+          .menu-link {
+              font-size: 26px;
+              margin: 15px 0;
+              width: 100%;
+              display: block;
+          }
+          /* zmiana hoveru na czerwony na fonie bo czarny zniknie na ciemnym tle */
+          .menu-link:hover {
+              color: crimson;
+          }
+      }
+      /* --- PODSTAWOWE RZECZY NA STRONIE --- */
+      /* ten czerwony link na dole */
+      .link {
+          color: white;
+          background-color: crimson;
+          text-decoration: none;
+          border: 2px solid black;
+          border-radius: 5px;
+          display: inline-block;
+          margin: 20px;
+          padding: 5px;
+          transition-duration: 0.5s;
+      }
+      /* hover dla linku na dole */
+      .link:hover {
+          color: rgb(160, 0, 0);
+          background-color: rgb(255, 198, 210);
+          border-radius: 20px;
+          transition-duration: 0.5s;
+      }
+      /* srodek dla panelu z tekstem */
+      .text-panel {
+          text-align: center;
+          padding: 20px;
+      }
 </style>
 </head>
 <body>
 <header>
-<video autoplay loop muted playsinline class="video-tlo">
+<video autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" class="video-tlo">
 <source src="filmy/film.mp4" type="video/mp4">
-           Twoja przeglądarka nie obsługuje tego formatu wideo.
+       Twoja przeglądarka nie obsługuje tego formatu wideo.
 </video>
-<nav class="menu-gorne">
+<button class="hamburger" onclick="toggleMenu()">☰ MENU</button>
+<nav class="menu-gorne" id="mobileMenu">
+<h2 class="ukryty-naglowek">Menu nawigacyjne</h2>
+<button class="close-btn" onclick="toggleMenu()">× CLOSE</button>
 <a href="aboutme.html" class="menu-link">About me</a>
 <span class="separator">-</span>
 <a href="portfolio.html" class="menu-link">Portfolio</a>
@@ -118,10 +193,17 @@
 <h2>Lorem costam</h2>
 <p>repellendusbla bla bla quasi Consectetur,<br> eius ut facilis vero.</p>
 </div>
-<a href="podstrona.html" class="link">link do podstrony</a>
-<br>
+<p><a href="podstrona.html" class="link">link do podstrony</a></p>
+<div>
 <button onclick="location.href='podstrona.html'">button do podstrony</button>
-<br><br>
-<img src="grafika/cat1.jpg" alt="cat" width="400" height="300">
+</div>
+<br>
+<p><img src="grafika/cat1.jpg" alt="cat" width="400" height="300"></p>
+<script>
+   function toggleMenu() {
+       var menu = document.getElementById("mobileMenu");
+       menu.classList.toggle("active");
+   }
+</script>
 </body>
 </html>

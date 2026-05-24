@@ -206,39 +206,23 @@ footer p {
 html {
     scroll-behavior: smooth;
 }
-/* Zmień to: */
+/* To jest Media Query dla telefonu - wklej to na sam koniec pliku */
+/* TO WKLEJ NA SAM KONIEC PLIKU style.css - USUŃ WCZEŚNIEJSZE BLOKI MEDIA */
+@media only screen and (max-width: 768px) {
 
-@media (max-width: 768px) {
+    .wizytowka {
 
-    /* ... Twój kod ... */
+        position: absolute !important;
 
-}
+        top: 15% !important;  /* Przesuń wyżej/niżej zmieniając tę wartość */
 
-/* Na to (działa dla ekranów typowo mobilnych): */
+        left: 5% !important;
 
-@media only screen and (max-width: 600px) {
+        bottom: unset !important; /* Całkowicie usuwa wpływ bottom */
 
-    .glowny-napis {
+        width: 90% !important;
 
-        position: absolute;
-
-        top: 25%;
-
-        left: 5%;
-
-        font-size: 50px;
-
-    }
-
-    .podnapis {
-
-        position: absolute;
-
-        top: 35%;
-
-        left: 5%;
-
-        font-size: 20px;
+        margin: 0 !important;
 
     }
 

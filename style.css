@@ -405,7 +405,70 @@ footer p {
 }
 
 /* Dostosowanie do ekranów telefonów */
+/* SEKCJA O MNIE - WIDOCZNA ZAWSZE */
 
+.o-mnie-sekcja {
+
+    color: crimson;
+
+    padding: 50px;
+
+    max-width: 900px;
+
+    margin: 240px auto; 
+
+    background: rgba(0, 0, 0, 0.75); 
+
+    border: 2px solid crimson;
+
+    border-radius: 15px;
+
+    text-align: left;
+
+    font-family: Arial, sans-serif;
+
+}
+
+.o-mnie-sekcja h2 {
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    font-size: 2rem;
+
+    margin-bottom: 30px;
+
+    letter-spacing: 2px;
+
+}
+
+.o-mnie-sekcja ul {
+
+    list-style-type: square;
+
+    padding-left: 20px;
+
+}
+
+.o-mnie-sekcja li {
+
+    margin-bottom: 20px;
+
+    font-size: 1.2rem;
+
+    line-height: 1.6;
+
+    color: #ffffff;
+
+}
+
+.o-mnie-sekcja li strong {
+
+    color: crimson;
+
+}
+ 
 @media (max-width: 768px) {
 
     .sekcja-boxow {
@@ -426,5 +489,6 @@ footer p {
 
     }
 
+ 
 }
  

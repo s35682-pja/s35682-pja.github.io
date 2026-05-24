@@ -206,23 +206,39 @@ footer p {
 html {
     scroll-behavior: smooth;
 }
-/* Styl dla telefonów (ekrany węższe niż 768 pikseli) */
+/* Zmień to: */
 
 @media (max-width: 768px) {
 
-    .sekcja-boxow {
+    /* ... Twój kod ... */
 
-        flex-direction: column; /* Układa elementy jeden pod drugim */
+}
 
-        align-items: center;    /* Wyśrodkowuje je */
+/* Na to (działa dla ekranów typowo mobilnych): */
 
-        gap: 20px;              /* Odstęp między boxami */
+@media only screen and (max-width: 600px) {
+
+    .glowny-napis {
+
+        position: absolute;
+
+        top: 25%;
+
+        left: 5%;
+
+        font-size: 50px;
 
     }
 
-    .kafelek {
+    .podnapis {
 
-        width: 90%; /* Boxy będą zajmować 90% szerokości ekranu na telefonie */
+        position: absolute;
+
+        top: 35%;
+
+        left: 5%;
+
+        font-size: 20px;
 
     }
 

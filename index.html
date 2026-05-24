@@ -111,6 +111,25 @@
 
         observer.observe(document.getElementById('boxSection'));
 </script>
+<script>
+
+    window.addEventListener("load", function() {
+
+        if (window.location.hash === "#kontakt") {
+
+            // Czyścimy adres URL, usuwając #kontakt
+
+            history.replaceState(null, null, ' ');
+
+            // Przewijamy na samą górę
+
+            window.scrollTo(0, 0);
+
+        }
+
+    });
+</script>
+ 
 </body>
 </html>
  

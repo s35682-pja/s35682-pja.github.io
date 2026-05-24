@@ -247,22 +247,39 @@
  
  
 footer {
-   display: block;
-   clear: both;
-   position: relative;
-   width: 100%;
-   background-color: #0b0b0b;
-   color: #ffffff;
-   text-align: center;
-   padding: 35px 20px;
-   font-family: 'Arial Black', Gadget, sans-serif;
-   font-size: 11px;
-   text-transform: uppercase;
-   letter-spacing: 3px;
-   border-top: 3px solid crimson;
-   margin-top: 150px; /* ODSTĘP pod boksami, przed stópką */
-   box-sizing: border-box;
-   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+
+    display: block;
+
+    clear: both;
+
+    position: relative;
+
+    width: 100%;
+
+    background-color: #0b0b0b;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+    font-family: 'Arial Black', Gadget, sans-serif;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    border-top: 3px solid crimson;
+
+    margin-top: 150px; /* To daje elegancki odstęp pod boksami */
+
+    box-sizing: border-box;
+
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+
 }
  
 footer p {
@@ -392,17 +409,15 @@ footer p {
 @media (max-width: 768px) {
 
     .sekcja-boxow {
-   display: flex;
-   justify-content: center;
+   display: grid;
+   /* Automatyczne dopasowanie kolumn bez ręcznego ustawiania szerokości */
+   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+   justify-items: center; /* Centruje kafelki w komórkach grida */
    gap: 30px;
-   padding: 20px 20px 20px 20px;
+   padding: 60px 20px;
    width: 100%;
    box-sizing: border-box;
-   overflow: hidden;
-   margin-top: 350px; /* POTĘŻNY ODSTĘP – odsuwa boksy głęboko pod baner */
 }
-
-
     .kafelek {
 
         width: 90vw;

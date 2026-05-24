@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <title>Strona Główna</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 <div class="kontener-tla">
 <video autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" class="nowe-tlo-strony">
 <source src="filmy/film.mp4" type="video/mp4">
-       Twoja przeglądarka nie obsługuje tego formatu wideo.
 </video>
 </div>
 <header>
@@ -22,21 +22,16 @@
 </div>
 <button class="hamburger" onclick="toggleMenu()">☰ MENU</button>
 <nav class="menu-gorne" id="mobileMenu">
-<h2 class="ukryty-naglowek">Menu nawigacyjne</h2>
 <button class="close-btn" onclick="toggleMenu()">× CLOSE</button>
 <a href="aboutme.html" class="menu-link">About me</a>
-<span class="separator">-</span>
 <a href="portfolio.html" class="menu-link">Portfolio</a>
-<span class="separator">-</span>
 <a href="services.html" class="menu-link">Services</a>
-<span class="separator">-</span>
 <a href="faq.html" class="menu-link">FAQ</a>
-<span class="separator">-</span>
 <a href="contact.html" class="menu-link">Contact</a>
 </nav>
 </header>
+<h2 class="wielki-naglowek-cv">Welcome to my digital cv!</h2>
 <div class="o-mnie-sekcja">
-<h2>Welcome to my digital cv!</h2>
 <ul>
 <li><strong>About Me:</strong> I am a dedicated Graphic Design student at the Polish-Japanese Academy of Information Technology (PJATK) in Warsaw. My academic journey is fueled by a deep passion for visual storytelling and a constant desire to master the tools of modern digital design, allowing me to bridge the gap between creative theory and professional practice.</li>
 <li><strong>My Achievements:</strong> I am incredibly proud to have been awarded a prestigious academic scholarship in recognition of my hard work, consistent dedication, and creative potential. Beyond my academic success, I have also completed several design projects for private clients, consistently delivering work that meets their expectations and leaves them fully satisfied with the final results.</li>
@@ -44,32 +39,70 @@
 <li><strong>Let's Create:</strong> Whether you need a brand identity, illustration, or complex graphic solutions, I am here to help you bring your vision to life!</li>
 </ul>
 </div>
-<div class="sekcja-boxow">
+<div class="sekcja-boxow" id="boxSection">
 <a href="faq.html" class="kafelek-link">
-<div class="kafelek">
-<span>Why choose me as your graphic designer?</span>
-</div>
+<div class="kafelek"><span>Why choose me as your graphic designer?</span></div>
 </a>
 <a href="services.html" class="kafelek-link">
-<div class="kafelek">
-<span>What services do I offer?</span>
-</div>
+<div class="kafelek"><span>What services do I offer?</span></div>
 </a>
 <a href="portfolio.html" class="kafelek-link">
-<div class="kafelek">
-<span>Completed commissions</span>
-</div>
+<div class="kafelek"><span>Completed commissions</span></div>
 </a>
 </div>
+<div class="kontakt-sekcja">
+<h3>Contact:</h3>
+<div class="kontakt-kontener">
+<a href="https://www.instagram.com/pink_r3d/" target="_blank" class="kontakt-item">
+<i class="fab fa-instagram"></i> <span>@pink_r3d</span>
+</a>
+<div class="kontakt-item">
+<i class="fas fa-phone"></i>
+ 
+<span>725 204 945</span>
+</div>
+</div>
+</div>
+ 
 <footer>
 <p>2026 Natalia Gulińska</p>
 <p>Student ID: <span class="footer-student-id">s35682</span></p>
 </footer>
 <script>
-   function toggleMenu() {
-       var menu = document.getElementById("mobileMenu");
-       menu.classList.toggle("active");
-   }
+
+        function toggleMenu() {
+
+            document.getElementById("mobileMenu").classList.toggle("active");
+
+        }
+
+        // Skrypt animujący wlot kafelków
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    const kafelki = entry.target.querySelectorAll('.kafelek');
+
+                    kafelki.forEach((kafelek, index) => {
+
+                        setTimeout(() => { kafelki[index].classList.add('wlecial'); }, index * 200);
+
+                    });
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        }, { threshold: 0.3 });
+
+        observer.observe(document.getElementById('boxSection'));
 </script>
 </body>
 </html>
+ 
+ 

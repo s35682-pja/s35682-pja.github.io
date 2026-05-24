@@ -1,494 +1,154 @@
- body {
-          background-color: black;
-          margin: 0px;
-          color: white;
-          font-family: Arial, sans-serif;
-      }
-      header {
-          position: relative;
-          width: 100%;
-          height: 500px;
-          overflow: hidden;
-          margin: 0px;
-      }
-      /* RED VIDEO BLUR*/
-      .video-tlo {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%) scale(1.1);
-          min-width: 100%;
-          min-height: 100%;
-          object-fit: cover;
-          z-index: 1;
-          filter: blur(5px);
-      }
-      /* --- WERSJA NA KOMPUTER --- */
-      /* chowanie przyciskow z menu telerona na kompie */
-      .hamburger, .close-btn {
-          display: none;
-      }
-      .menu-gorne {
-          position: absolute;
-          top: 30px;
-          right: 0;
-          text-align: right;
-          padding-right: 50px;
-          z-index: 10;
-          width: 100%;
-      }
-      .ukryty-naglowek {
-          display: none;
-      }
-      /* linki w menu */
-      .menu-link {
-          color: white;
-          text-decoration: none;
-          text-transform: uppercase;
-          font-size: 18px;
-          font-family: 'Arial Black', Gadget, sans-serif;
-          letter-spacing: 1px;
-          transition: color 0.3s ease;
-          margin: 0 12px;
-          display: inline-block;
-      }
-      /* zeby robily sie czarne jak sie najedzie myszka */
-      .menu-link:hover {
-          color: #000000;
-          cursor: pointer;
-      }
-      /* te kreski miedzy napisami */
-      .separator {
-          color: white;
-          font-size: 18px;
-          font-family: 'Arial Black', Gadget, sans-serif;
-      }
-      /* --- WERSJA NA TELEFON --- */
-      @media (max-width: 768px) {
-          /* wyglad przycisku menu na fonie */
-          .hamburger {
-              display: block;
-              position: absolute;
-              top: 20px;
-              right: 20px;
-              z-index: 15;
-              background: rgba(0, 0, 0, 0.8);
-              color: white;
-              border: 1px solid white;
-              padding: 10px 15px;
-              font-family: 'Arial Black', sans-serif;
-              font-size: 14px;
-              cursor: pointer;
-          }
-          /* przycisk do zamykania menu */
-          .close-btn {
-              display: block;
-              align-self: flex-end;
-              background: none;
-              border: none;
-              color: white;
-              font-size: 35px;
-              cursor: pointer;
-              margin-bottom: 40px;
-              font-family: Arial, sans-serif;
-          }
-          /* cale menu zmienia sie w pionowy boks na caly ekran telefonu */
-          .menu-gorne {
-              display: none; /* na start ma byc schowane */
-              flex-direction: column;
-              justify-content: flex-start;
-              align-items: center;
-              position: fixed;
-              top: 0;
-              right: 0;
-              width: 100%;
-              height: 100vh;
-              background-color: rgba(0, 0, 0, 0.95);
-              padding: 30px;
-              box-sizing: border-box;
-              z-index: 100;
-              text-align: center;
-              padding-right: 30px;
-          }
-          /* to sie wlacza skryptem zeby pokazac menu */
-          .menu-gorne.active {
-              display: flex;
-          }
-          /* chowanie kresek na telefonie bo napisy beda w pionie */
-          .separator {
-              display: none;
-          }
-          /* powiekszenie linkow na telefonie zeby sie dobrze klikalo palcem */
-          .menu-link {
-              font-size: 26px;
-              margin: 15px 0;
-              width: 100%;
-              display: block;
-          }
-          /* zmiana hoveru na czerwony na fonie bo czarny zniknie na ciemnym tle */
-          .menu-link:hover {
-              color: crimson;
-          }
-      } /* TA KLAMRA TUTAJ ZAMYKA RESPNSYWNOSC I TO ONA NAPRAWIA CALA STRONE! */
-      /* --- PODSTAWOWE RZECZY NA STRONIE --- */
-      /* ten czerwony link na dole */
-      .link {
-          color: white;
-          background-color: crimson;
-          text-decoration: none;
-          border: 2px solid black;
-          border-radius: 5px;
-          display: inline-block;
-          margin: 20px;
-          padding: 5px;
-          transition-duration: 0.5s;
-      }
-      /* hover dla linku na dole */
-      .link:hover {
-          color: rgb(160, 0, 0);
-          background-color: rgb(255, 198, 210);
-          border-radius: 20px;
-          transition-duration: 0.5s;
-      }
-      /* srodek dla panelu z tekstem */
-      .text-panel {
-          text-align: center;
-          padding: 20px;
-      }
-      /* boks z imieniem trzymany po lewej stronie na filmie */
-      .wizytowka {
-          position: absolute;
-          bottom: 120px; /* odleglosc od dolu filmu */
-          left: 50px;    /* odleglosc od lewej krawedzi ekranu */
-          z-index: 5;    /* wyzej niz film, zeby napisy go przykrywaly */
-          text-align: left;
-      }
-      /* Natalia Gulinska */
-      .glowny-napis {
-          color: white;
-          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* prosta, nowoczesna czcionka */
-          font-size: 100px; /* wielki rozmiar napisów */
-          font-weight: 700; /* grube litery */
-          letter-spacing: 1px; /* lekkie odstepy miedzy literami */
-          margin: 0px 0px 5px 0px; /* reset i maly odstep pod spod do drugiego napisu */
-      }
-      /* graphic designer */
-      .podnapis {
-          color: white;
-          font-family: Arial, sans-serif;
-          font-size: 40px;
-          text-transform: uppercase; /* automatycznie zamienia na WIELKIE LITERY */
-          letter-spacing: 4px; /* mocne rozstrzelenie liter dla fajnego efektu */
-          margin: 0px;
-          opacity: 0.9; /* delikatna przezroczystosc */
-          /* --- SYSTEMOWA STÓPKA (FOOTER) --- */}
-.kontener-tla {
-
-    position: fixed;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    height: 100vh;
-
-    z-index: -2;
-
-    background-color: black;
-
-    overflow: hidden;
-
+body { background-color: black; margin: 0px; color: white; font-family: Arial, sans-serif; }
+header { position: relative; width: 100%; height: 500px; overflow: hidden; margin: 0px; }
+.video-tlo { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.1); min-width: 100%; min-height: 100%; object-fit: cover; z-index: 1; filter: blur(5px); }
+.hamburger, .close-btn { display: none; }
+.menu-gorne { position: absolute; top: 30px; right: 0; text-align: right; padding-right: 50px; z-index: 10; width: 100%; }
+.ukryty-naglowek { display: none; }
+.menu-link { color: white; text-decoration: none; text-transform: uppercase; font-size: 18px; font-family: 'Arial Black', Gadget, sans-serif; letter-spacing: 1px; transition: color 0.3s ease; margin: 0 12px; display: inline-block; }
+.menu-link:hover { color: #000000; cursor: pointer; }
+.separator { color: white; font-size: 18px; font-family: 'Arial Black', Gadget, sans-serif; }
+@media (max-width: 768px) {
+   .hamburger { display: block; position: absolute; top: 20px; right: 20px; z-index: 15; background: rgba(0, 0, 0, 0.8); color: white; border: 1px solid white; padding: 10px 15px; font-family: 'Arial Black', sans-serif; font-size: 14px; cursor: pointer; }
+   .close-btn { display: block; align-self: flex-end; background: none; border: none; color: white; font-size: 35px; cursor: pointer; margin-bottom: 40px; font-family: Arial, sans-serif; }
+   .menu-gorne { display: none; flex-direction: column; justify-content: flex-start; align-items: center; position: fixed; top: 0; right: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.95); padding: 30px; box-sizing: border-box; z-index: 100; text-align: center; }
+   .menu-gorne.active { display: flex; }
+   .separator { display: none; }
+   .menu-link { font-size: 26px; margin: 15px 0; width: 100%; display: block; }
 }
-
-.nowe-tlo-strony {
-
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    height: 100vh;
-
-    object-fit: cover;
-
-    filter: blur(4px);
-
-    opacity: 0.15;
-
-}
-
-.kontener-tla::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 15%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%);
-
-    z-index: 1;
-
-    pointer-events: none;
-
-}
- 
- 
- 
+.kontener-tla { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -2; background-color: black; overflow: hidden; }
+.nowe-tlo-strony { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; object-fit: cover; filter: blur(4px); opacity: 0.15; }
+.wizytowka { position: absolute; bottom: 120px; left: 50px; z-index: 5; text-align: left; }
+.glowny-napis { color: white; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 100px; font-weight: 700; margin: 0px 0px 5px 0px; }
+.podnapis { color: white; font-family: Arial, sans-serif; font-size: 40px; text-transform: uppercase; letter-spacing: 4px; margin: 0px; opacity: 0.9; }
 footer {
-
-    display: block;
-
-    clear: both;
-
-    position: relative;
-
-    width: 100%;
-
-    background-color: #0b0b0b;
-
-    color: #ffffff;
-
-    text-align: center;
-
-    padding: 35px 20px;
-
-    font-family: 'Arial Black', Gadget, sans-serif;
-
-    font-size: 11px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
-
-    border-top: 3px solid crimson;
-
-    margin-top: 150px; /* To daje elegancki odstęp pod boksami */
-
-    box-sizing: border-box;
-
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-
+   display: block;
+   clear: both;
+   position: relative;
+   width: 100%;
+   background-color: #0b0b0b;
+   color: #ffffff;
+   text-align: center;
+   padding: 35px 20px;
+   font-family: 'Arial Black', Gadget, sans-serif;
+   font-size: 11px;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+   border-top: 3px solid crimson;
+   margin-top: 150px;
+   box-sizing: border-box;
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
- 
 footer p {
-   margin: 8px 0;
-   opacity: 0.7;
+  margin: 8px 0;
+  opacity: 0.7;
 }
 .footer-student-id {
-   font-weight: normal;
-   color: crimson;
-}.sekcja-boxow {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 30px;
-
-    padding: 60px 20px;
-
-    width: 100%;
-
-    box-sizing: border-box;
-
-    overflow: hidden;
-    
-
+  font-weight: normal;
+  color: crimson;
 }
-
-.kafelek-link {
-
-    text-decoration: none;
-
-    display: block;
-
-}
-
+.sekcja-boxow { display: flex; justify-content: center; gap: 30px; padding: 60px 20px; width: 100%; box-sizing: border-box; overflow: hidden; }
+.kafelek-link { text-decoration: none; display: block; }
+/* KAFELKI - ANIMACJA */
 .kafelek {
-
-    background-color: #000000;
-
-    border: 2px solid #1a1a1a;
-
-    width: 350px;
-
-    height: 220px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 20px;
-
-    box-sizing: border-box;
+   background-color: #000000;
+   border: 2px solid #1a1a1a;
+   width: 350px;
+   height: 220px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 20px;
+   box-sizing: border-box;
+   text-align: center;
+   cursor: pointer;
+   /* Stan początkowy: niewidoczne i przesunięte w prawo */
+   opacity: 0;
+   transform: translateX(100px);
+   transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.kafelek.wlecial {
+   opacity: 1;
+   transform: translateX(0);
+}
+.kafelek span { color: crimson; font-family: 'Arial Black', Gadget, sans-serif; font-size: 18px; text-transform: uppercase; transition: color 0.4s ease; }
+.kafelek:hover { transform: translateY(-10px) scale(1.02) !important; border-color: crimson; box-shadow: 0px 10px 25px rgba(220, 20, 60, 0.3); }
+.kafelek:hover span { color: #ffffff; }
+.wielki-naglowek-cv { text-align: center; text-transform: uppercase; font-family: 'Arial Black', Gadget, sans-serif; font-size: 3rem; color: crimson; margin-top: 200px; margin-bottom: 110px; }
+.o-mnie-sekcja { padding: 50px; max-width: 900px; margin: 100px auto; background: rgba(0, 0, 0, 0.75); border: 2px solid crimson; border-radius: 15px; }
+.o-mnie-sekcja li { margin-bottom: 20px; font-size: 1.2rem; line-height: 1.6; color: #ffffff; }
+.o-mnie-sekcja li strong { color: crimson; }
+.kontakt-sekcja {
 
     text-align: center;
 
-    cursor: pointer;
+    margin-top: 150px; /* Taki sam odstęp jak w footerze */
 
-    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    margin-bottom: 150px;
 
-    /* Animacja wlatywania: */
-
-    transform: translateX(100vw);
-
-    animation: wlotKafelka 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    padding: 40px;
 
 }
 
-.kafelek span {
+.kontakt-sekcja h3 {
 
     color: crimson;
+
+    text-transform: uppercase;
 
     font-family: 'Arial Black', Gadget, sans-serif;
-
-    font-size: 18px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
-
-    transition: color 0.4s ease;
-
-}
-
-/* Opóźnienia dla każdego kafelka, żeby wchodziły jeden po drugim */
-
-.kafelek-link:nth-child(1) .kafelek { animation-delay: 0.2s; }
-
-.kafelek-link:nth-child(2) .kafelek { animation-delay: 0.5s; }
-
-.kafelek-link:nth-child(3) .kafelek { animation-delay: 0.8s; }
-
-/* Efekt najechania myszką (hover) jak na filmie */
-
-.kafelek:hover {
-
-    transform: translateY(-10px) scale(1.02) !important;
-
-    border-color: crimson;
-
-    box-shadow: 0px 10px 25px rgba(220, 20, 60, 0.3);
-
-}
-
-.kafelek:hover span {
-
-    color: #ffffff;
-
-}
-
-/* Reguła ruchu od prawej do lewej strony */
-
-@keyframes wlotKafelka {
-
-    to {
-
-        transform: translateX(0);
-
-    }
-
-}
-
-/* Dostosowanie do ekranów telefonów */
-/* SEKCJA O MNIE - WIDOCZNA ZAWSZE */
-
-.o-mnie-sekcja {
-
-    color: crimson;
-
-    padding: 50px;
-
-    max-width: 900px;
-
-    margin: 240px auto; 
-
-    background: rgba(0, 0, 0, 0.75); 
-
-    border: 2px solid crimson;
-
-    border-radius: 15px;
-
-    text-align: left;
-
-    font-family: Arial, sans-serif;
-
-}
-
-.o-mnie-sekcja h2 {
-
-    text-align: center;
-
-    text-transform: uppercase;
-
-    font-size: 2rem;
-
-    margin-bottom: 30px;
+    font-size: 3.5rem;
 
     letter-spacing: 2px;
 
-}
-
-.o-mnie-sekcja ul {
-
-    list-style-type: square;
-
-    padding-left: 20px;
+    margin-bottom: 30px;
 
 }
 
-.o-mnie-sekcja li {
+.kontakt-kontener {
 
-    margin-bottom: 20px;
+    display: flex;
 
-    font-size: 1.2rem;
+    justify-content: center;
 
-    line-height: 1.6;
-
-    color: #ffffff;
+    gap: 50px;
 
 }
 
-.o-mnie-sekcja li strong {
+.kontakt-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 1.7rem;
+
+    transition: color 0.3s ease;
+
+}
+
+.kontakt-item:hover {
 
     color: crimson;
 
 }
- 
-@media (max-width: 768px) {
 
-    .sekcja-boxow {
-   display: grid;
-   /* Automatyczne dopasowanie kolumn bez ręcznego ustawiania szerokości */
-   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-   justify-items: center; /* Centruje kafelki w komórkach grida */
-   gap: 30px;
-   padding: 60px 20px;
-   width: 100%;
-   box-sizing: border-box;
-}
-    .kafelek {
+.icon {
 
-        width: 90vw;
+    font-weight: bold;
 
-        height: 150px;
+    color: crimson;
 
-    }
+    border: 1px solid crimson;
 
- 
+    padding: 5px 10px;
+
+    border-radius: 5px;
+
 }
  

@@ -208,92 +208,60 @@ html {
 }
 /* To jest Media Query dla telefonu - wklej to na sam koniec pliku */
 /* TO WKLEJ NA SAM KONIEC PLIKU style.css - USUŃ WCZEŚNIEJSZE BLOKI MEDIA */
-@media only screen and (max-width: 768px) {
 
-    .wizytowka {
 
-        position: absolute !important;
-
-        top: 15% !important;  /* Przesuń wyżej/niżej zmieniając tę wartość */
-
-        left: 5% !important;
-
-        bottom: unset !important; /* Całkowicie usuwa wpływ bottom */
-
-        width: 90% !important;
-
-        margin: 0 !important;
-
-    }
-
-}
  @media only screen and (max-width: 768px) {
 
-    html,
-    body {
+    html, body {
         overflow-x: hidden;
     }
 
     .wizytowka {
         position: absolute !important;
-        top: 15% !important;
-        left: 5% !important;
-        width: 90% !important;
-        bottom: unset !important;
+        top: 52% !important;   /* 🔥 lekko wyżej niż wcześniej */
+        left: 6% !important;
+        right: 6% !important;
+        transform: translateY(-50%);
+        width: 88% !important;
     }
 
     .glowny-napis {
-        font-size: 60px !important;
-        line-height: 1;
-        word-break: break-word;
+        font-size: 58px !important;
+        line-height: 1 !important;
+        white-space: normal !important;  /* 🔥 KLUCZ — usuwa ucinanie */
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
     }
 
     .podnapis {
-        font-size: 22px !important;
+        font-size: 18px !important;
+        letter-spacing: 2px;
     }
+}
+@media only screen and (max-width: 768px) {
 
     .sekcja-boxow {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        width: 100%;
-        padding: 20px 10px;
-        box-sizing: border-box;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 25px !important;
+        width: 100% !important;
+        padding: 20px 10px !important;
+        overflow: visible !important;
     }
 
     .kafelek-link {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
     }
 
     .kafelek {
         width: 90% !important;
         max-width: 350px !important;
         height: 200px !important;
-        padding: 20px !important;
-        box-sizing: border-box;
+        opacity: 1 !important; /* 🔥 ważne dla animacji */
+        transform: translateX(0) !important; /* 🔥 reset animacji na mobile */
     }
 
-    .kafelek span {
-        font-size: 22px !important;
-        line-height: 1.4;
-    }
-
-    .kontakt-sekcja {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-
-    .kontakt-dane-pionowe {
-        margin-top: 0 !important;
-    }
-
-    .zdjecie-kontakt {
-        width: 90%;
-        max-width: 300px;
-        height: auto;
-    }
 }

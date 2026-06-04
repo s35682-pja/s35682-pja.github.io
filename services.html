@@ -157,28 +157,42 @@
     </div>
 
 </div>
-```
 
+
+
+
+
+<section class="recent-work">
+<h2 class="section-title">MY RECENT WORK</h2>
+<div class="carousel-container">
+<button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
+<div class="carousel-track" id="carouselTrack">
+<a href="portfolio.html"><img src="grafika/1.jpg" alt="Work 1"></a>
+<a href="portfolio.html"><img src="grafika/2.jpg" alt="Work 2"></a>
+<a href="portfolio.html"><img src="grafika/3.jpg" alt="Work 3"></a>
+<a href="portfolio.html"><img src="grafika/4.jpg" alt="Work 4"></a>
+<a href="portfolio.html"><img src="grafika/5.jpg" alt="Work 5"></a>
+<a href="portfolio.html"><img src="grafika/6.jpg" alt="Work 6"></a>
+<a href="portfolio.html"><img src="grafika/7.jpg" alt="Work 7"></a>
+<a href="portfolio.html"><img src="grafika/8.jpg" alt="Work 8"></a>
+<a href="portfolio.html"><img src="grafika/9.jpg" alt="Work 9"></a>
+<a href="portfolio.html"><img src="grafika/10.jpg" alt="Work 10"></a>
+<a href="portfolio.html"><img src="grafika/11.jpg" alt="Work 11"></a>
+<a href="portfolio.html"><img src="grafika/12.jpg" alt="Work 12"></a>
+<a href="portfolio.html"><img src="grafika/13.jpg" alt="Work 13"></a>
+<a href="portfolio.html"><img src="grafika/14.jpg" alt="Work 14"></a>
+<a href="portfolio.html"><img src="grafika/15.jpg" alt="Work 15"></a>
+<a href="portfolio.html"><img src="grafika/16.jpg" alt="Work 16"></a>
+<a href="portfolio.html"><img src="grafika/17.jpg" alt="Work 17"></a>
+<a href="portfolio.html"><img src="grafika/18.jpg" alt="Work 18"></a>
+<a href="portfolio.html"><img src="grafika/19.jpg" alt="Work 19"></a>
+</div>
+<button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
+</div>
 </section>
-<div class="kontakt-sekcja" id="kontakt">
 
-    <div class="kontakt-lewa">
-        <h3>GET IN TOUCH</h3>
 
-        <div class="kontakt-dane-pionowe">
-            <a href="https://www.instagram.com/pink_r3d/" target="_blank" class="kontakt-link">
-                <i class="fab fa-instagram"></i> @pink_r3d
-            </a>
 
-            <div class="kontakt-link">
-                <i class="fas fa-phone"></i> 725 204 945
-            </div>
-        </div>
-    </div>
-
-    <div class="kontakt-prawa">
-        <img src="grafika/ig.PNG" class="zdjecie-kontakt">
-    </div>
 
 </div>
 <footer>
@@ -198,6 +212,14 @@ function toggleMenu() {
     </video>
 </div>
 </html>
-
+<script>
+function scrollGallery(direction) {
+    const gallery = document.getElementById("gallery");
+    gallery.scrollBy({
+        left: direction * 300,
+        behavior: "smooth"
+    });
+}
+</script>
 </body>
 </html>

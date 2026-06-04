@@ -321,4 +321,156 @@ html {
     width: auto;
     border-radius: 15px;
     object-fit: cover;
+}.recent-title {
+    text-align: center;
+    color: crimson;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin: 120px 0 40px 0;
 }
+
+/* Styl dla nagłówka "MY RECENT WORK" */
+
+.section-title {
+
+  font-family: 'Arial Black', 'Impact', sans-serif; /* Dopasuj nazwę czcionki, jeśli używasz niestandardowej */
+
+  color: #ff007f; /* Intensywny róż z Twojego zdjęcia */
+
+  font-size: 3rem;
+
+  text-transform: uppercase;
+
+  text-align: center;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 30px;
+
+}
+
+/* Kontener karuzeli */
+
+.carousel-container {
+
+  position: relative;
+
+  max-width: 90%;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+}
+
+/* Pasek z przewijanymi zdjęciami */
+
+.carousel-track {
+
+  display: flex;
+
+  gap: 20px;
+
+  overflow-x: auto;
+
+  scroll-behavior: smooth;
+
+  padding: 20px 10px;
+
+  scrollbar-width: none; /* Ukrywa domyślny pasek przewijania w Firefox */
+
+}
+
+.carousel-track::-webkit-scrollbar {
+
+  display: none; /* Ukrywa domyślny pasek przewijania w Chrome/Safari */
+
+}
+
+/* Styl pojedynczego zdjęcia (wewnątrz linku) */
+
+.carousel-track a {
+
+  flex: 0 0 auto;
+
+  display: block;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.carousel-track img {
+
+  width: 250px;       /* Stała szerokość okienka */
+
+  height: 350px;      /* Stała wysokość okienka */
+
+  object-fit: cover;  /* Zdjęcia dopasują się i nie będą rozciągnięte */
+
+  border-radius: 8px;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+
+  display: block;
+
+}
+
+/* Efekt najechania (powiększenie zdjęcia) */
+
+.carousel-track a:hover {
+
+  transform: scale(1.1);
+
+  z-index: 10;
+
+  box-shadow: 0 0 20px #ff007f; /* Różowa poświata przy najechaniu */
+
+}
+
+/* Przyciski/Strzałki sterujące */
+
+.carousel-btn {
+
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+  color: #ff007f;
+
+  border: 2px solid #ff007f;
+
+  font-size: 2rem;
+
+  padding: 10px 15px;
+
+  cursor: pointer;
+
+  border-radius: 50%;
+
+  z-index: 100;
+
+  transition: all 0.3s ease;
+
+}
+
+.carousel-btn:hover {
+
+  background-color: #ff007f;
+
+  color: #fff;
+
+  box-shadow: 0 0 15px #ff007f;
+
+}
+
+.prev-btn { left: -25px; }
+
+.next-btn { right: -25px; }
+ 

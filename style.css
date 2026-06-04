@@ -227,4 +227,73 @@ html {
     }
 
 }
- 
+ @media only screen and (max-width: 768px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .wizytowka {
+        position: absolute !important;
+        top: 15% !important;
+        left: 5% !important;
+        width: 90% !important;
+        bottom: unset !important;
+    }
+
+    .glowny-napis {
+        font-size: 60px !important;
+        line-height: 1;
+        word-break: break-word;
+    }
+
+    .podnapis {
+        font-size: 22px !important;
+    }
+
+    .sekcja-boxow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        width: 100%;
+        padding: 20px 10px;
+        box-sizing: border-box;
+    }
+
+    .kafelek-link {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .kafelek {
+        width: 90% !important;
+        max-width: 350px !important;
+        height: 200px !important;
+        padding: 20px !important;
+        box-sizing: border-box;
+    }
+
+    .kafelek span {
+        font-size: 22px !important;
+        line-height: 1.4;
+    }
+
+    .kontakt-sekcja {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .kontakt-dane-pionowe {
+        margin-top: 0 !important;
+    }
+
+    .zdjecie-kontakt {
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+    }
+}

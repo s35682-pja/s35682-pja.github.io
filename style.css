@@ -151,44 +151,40 @@ footer p {
     border-radius: 5px;
 
 }
- .kontakt-sekcja {
-   display: flex; /* Ustawia lewą i prawą stronę obok siebie */
-   justify-content: center; /* Wyśrodkowuje całość */
-   align-items: flex-start; /* Wyrównuje w pionie */
-   gap: 100px; /* Odstęp między tekstem a zdjęciem */
-   margin-top: 150px;
-   padding: 20px;
+
+
+.kontakt-sekcja {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* 🔥 TU ustawiasz odległość */
 }
 
 .kontakt-lewa {
-   text-align: left; /* Przesuwa tekst do lewej */
-   margin-top: 0px;
-}
-.kontakt-dane-pionowe {
-
     display: flex;
-
     flex-direction: column;
+    justify-content: center;
+    margin-top: -60px;
+}
 
-    gap: 20px; 
-    margin-top: -300px;
+.kontakt-dane-pionowe {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-    /* Tutaj NIE DAWAJ margin-top, żeby nie ruszać nagłówka */
-
+.kontakt-prawa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .zdjecie-kontakt {
-
-    margin-top:40px; /* Ustaw na 0, żeby wyrównać zdjęcie do góry bloku */
-
-    width: auto;
-
     height: 250px;
-
+    width: auto;
     border-radius: 15px;
-
     object-fit: cover;
-
 }
  
 .kontakt-link {
@@ -264,4 +260,65 @@ html {
         transform: translateX(0) !important; /* 🔥 reset animacji na mobile */
     }
 
+}
+@media only screen and (max-width: 768px) {
+
+    .kontakt-sekcja {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 20px;
+    }
+
+    .kontakt-lewa {
+        width: 55%;
+        text-align: left;
+    }
+
+    .kontakt-prawa {
+        width: 45%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .zdjecie-kontakt {
+        max-width: 160px;
+        height: auto;
+    }
+
+    .kontakt-lewa h3 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+.kontakt-sekcja {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* 🔥 TO steruje odległością */
+    text-align: left;
+}
+
+.kontakt-lewa {
+    flex: 0 0 auto;
+}
+
+.kontakt-prawa {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kontakt-dane-pionowe {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.zdjecie-kontakt {
+    height: 250px;
+    width: auto;
+    border-radius: 15px;
+    object-fit: cover;
 }

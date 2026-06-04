@@ -51,25 +51,29 @@
 <div class="kafelek"><span>Completed commissions</span></div>
 </a>
 </div>
-<div class="kontakt-sekcja">
-<div class="kontakt-lewa">
-<h3>GET IN TOUCH</h3>
-<div class="kontakt-sekcja" id="kontakt"></div>
-<div class="kontakt-dane-pionowe">
-<a href="https://www.instagram.com/pink_r3d/" target="_blank" class="kontakt-link">
-<i class="fab fa-instagram"></i> @pink_r3d
-</a>
-<div class="kontakt-link">
-<i class="fas fa-phone"></i> 725 204 945
-</div>
-</div>
-</div>
-<div class="kontakt-prawa">
-<img src="grafika/ig.PNG" alt="Moje zdjęcie" class="zdjecie-kontakt">
-</div>
-</div>
- 
 
+<div class="kontakt-sekcja" id="kontakt">
+
+    <div class="kontakt-lewa">
+        <h3>GET IN TOUCH</h3>
+
+        <div class="kontakt-dane-pionowe">
+            <a href="https://www.instagram.com/pink_r3d/" target="_blank" class="kontakt-link">
+                <i class="fab fa-instagram"></i> @pink_r3d
+            </a>
+
+            <div class="kontakt-link">
+                <i class="fas fa-phone"></i> 725 204 945
+            </div>
+        </div>
+    </div>
+
+    <div class="kontakt-prawa">
+        <img src="grafika/ig.PNG" class="zdjecie-kontakt">
+    </div>
+
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -124,13 +128,32 @@
 
             // Przewijamy na samą górę
 
-            window.scrollTo(0, 0);
+           
 
         }
 
     });
 </script>
- 
+
+<script>
+window.addEventListener("DOMContentLoaded", function () {
+
+    if (window.location.hash === "#kontakt") {
+
+        const el = document.getElementById("kontakt");
+
+        if (el) {
+
+            setTimeout(() => {
+                el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 300);
+
+        }
+    }
+
+});
+</script>
+
 </body>
 </html>
  

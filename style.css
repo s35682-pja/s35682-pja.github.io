@@ -593,18 +593,12 @@ html {
         0 0 10px #ff000d,
         0 0 20px #ff0055;
 }.services-intro{
-    max-width:900px;
-    margin:80px auto;
+    max-width:1000px;
+    margin:100px auto;
     text-align:center;
-
-    background:rgba(0,0,0,0.5);
-    padding:40px;
-
-    border:2px solid #ff002b;
-    border-radius:20px;
-
-    box-shadow:0 0 20px rgba(255,0,85,.4);
+    padding:0 20px;
 }
+
 
 .services-intro p{
     color:white;
@@ -744,4 +738,33 @@ html {
 
 .service-row img:hover{
     transform:scale(1.04);
+}@media (max-width: 900px){
+
+    .service-row,
+    .service-row.reverse{
+        flex-direction: column;
+        gap: 30px;
+        margin: 80px auto;
+    }
+
+    .service-info{
+        width: 100%;
+        max-width: 100%;
+        padding: 30px;
+    }
+
+    .service-row img{
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 500px;
+    }
+
+    .service-info h2{
+        font-size: 2rem;
+    }
+
+    .service-info p{
+        font-size: 1rem;
+    }
 }

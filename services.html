@@ -1,173 +1,118 @@
- <!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
+<body class="services-page">
 
 <header class="services-hero">
-<header class="services-hero">
-
     <video autoplay loop muted playsinline class="video-tlo">
         <source src="filmy/film.mp4" type="video/mp4">
     </video>
-<button class="hamburger" onclick="toggleMenu()">☰ MENU</button>
+    
+    <button class="hamburger" onclick="toggleMenu()">☰ MENU</button>
 
-<nav class="menu-gorne" id="mobileMenu">
-    <button class="close-btn" onclick="toggleMenu()">× CLOSE</button>
+    <nav class="menu-gorne" id="mobileMenu">
+        <button class="close-btn" onclick="toggleMenu()">× CLOSE</button>
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="portfolio.html" class="menu-link">Portfolio</a>
+        <a href="services.html" class="menu-link">Services</a>
+        <a href="faq.html" class="menu-link">FAQ</a>
+        <a href="#kontakt" class="menu-link">Contact</a>
+    </nav>
 
-    <a href="index.html" class="menu-link">Home</a>
-    <a href="portfolio.html" class="menu-link">Portfolio</a>
-    <a href="services.html" class="menu-link">Services</a>
-    <a href="faq.html" class="menu-link">FAQ</a>
-    <a href="#kontakt" class="menu-link">Contact</a>
-</nav>
-   <div class="wizytowka">
-    <h1 class="glowny-napis">SERVICES xx</h1>
-    <p class="podnapis">Creative Solutions & Graphic Design</p>
-</div>
-</header>
-```
-<video autoplay loop muted playsinline class="video-tlo">
-    <source src="filmy/film.mp4" type="video/mp4">
-</video>
-
-<div class="hero-overlay"></div>
-
-<div class="services-hero-content">
-    <h1>SERVICES</h1>
-    <p>Creative solutions tailored to your vision.</p>
-</div>
-```
-
+    <div class="wizytowka">
+        <h1 class="glowny-napis">SERVICES</h1>
+        <p class="podnapis">Creative Solutions & Graphic Design</p>
+    </div>
 </header>
 
 <section class="services-intro">
-
-<h2 class="sekcja-tytul">WHAT CAN I DO FOR YOU?</h2>
-
-<p>
-    Whether you are building a new brand, looking to refresh your visual identity, promote your business on social media, or bring a creative idea to life, I can help transform your vision into impactful design. From logos and illustrations to advertising materials and digital content, I create visuals tailored to your goals and audience. My aim is to provide designs that not only look professional and memorable but also communicate your message clearly and effectively.
-
-</p>
-
-
+    <h2 class="sekcja-tytul">WHAT CAN I DO FOR YOU?</h2>
+    <p>
+        Whether you are building a new brand, looking to refresh your visual identity, promote your business on social media, or bring a creative idea to life, I can help transform your vision into impactful design. From logos and illustrations to advertising materials and digital content, I create visuals tailored to your goals and audience. My aim is to provide designs that not only look professional and memorable but also communicate your message clearly and effectively.
+    </p>
 </section>
 
 <section class="service-showcase">
-
-<div class="service-row">
-
-    <div class="service-info">
-        <h2>BRAND IDENTITY</h2>
-        <p>
-            Logo design, visual identity systems, color palettes and brand
-            guidelines that give your business a unique personality.
-        </p>
+    <div class="service-row">
+        <div class="service-info">
+            <h2>BRAND IDENTITY</h2>
+            <p>Logo design, visual identity systems, color palettes and brand guidelines that give your business a unique personality.</p>
+        </div>
+        <img src="grafika/7.jpg" alt="Brand Identity">
     </div>
 
-    <img src="grafika/1.jpg" alt="">
-</div>
-
-
-<div class="service-row reverse">
-
-    <img src="grafika/2.jpg" alt="">
-
-    <div class="service-info">
-        <h2>ILLUSTRATION</h2>
-        <p>
-            Custom digital illustrations designed for personal projects,
-            commercial use, merchandise and promotional materials.
-        </p>
+    <div class="service-row reverse">
+        <img src="grafika/1.jpg" alt="Illustration">
+        <div class="service-info">
+            <h2>ILLUSTRATION</h2>
+            <p>Custom digital illustrations designed for personal projects, commercial use, merchandise and promotional materials.</p>
+        </div>
     </div>
 
-</div>
-
-
-<div class="service-row">
-
-    <div class="service-info">
-        <h2>SOCIAL MEDIA DESIGN</h2>
-        <p>
-            Professional posts, stories, banners and content packages
-            that strengthen your online presence.
-        </p>
+    <div class="service-row">
+        <div class="service-info">
+            <h2>SOCIAL MEDIA DESIGN</h2>
+            <p>Professional posts, stories, banners and content packages that strengthen your online presence.</p>
+        </div>
+        <img src="grafika/5.jpg" alt="Social Media">
     </div>
 
-    <img src="grafika/3.jpg" alt="">
-</div>
-
-
-<div class="service-row reverse">
-
-    <img src="grafika/4.jpg" alt="">
-
-    <div class="service-info">
-        <h2>PRINT DESIGN</h2>
-        <p>
-            Posters, flyers, brochures, business cards and promotional
-            materials prepared for printing.
-        </p>
+    <div class="service-row reverse">
+        <img src="grafika/16.jpg" alt="Print Design">
+        <div class="service-info">
+            <h2>PRINT DESIGN</h2>
+            <p>Posters, flyers, brochures, business cards and promotional materials prepared for printing.</p>
+        </div>
     </div>
-
-</div>
-
 </section>
 
-<section class="process-section">
+<section class="services-process-section">
+    <h2 class="sekcja-tytul">MY DESIGN PROCESS</h2>
+    
+    <div class="process-grid" id="processGrid">
+        <div class="process-box">
+            <div class="process-header">
+                <span class="process-number">01</span>
+                <i class="fas fa-comments process-icon"></i>
+            </div>
+            <h3>Consultation</h3>
+            <p>Understanding your goals and project requirements.</p>
+        </div>
 
-```
-<h2 class="sekcja-tytul">MY DESIGN PROCESS</h2>
+        <div class="process-box">
+            <div class="process-header">
+                <span class="process-number">02</span>
+                <i class="fas fa-lightbulb process-icon"></i>
+            </div>
+            <h3>Concept</h3>
+            <p>Developing creative directions and visual ideas.</p>
+        </div>
 
-<div class="process-grid">
+        <div class="process-box">
+            <div class="process-header">
+                <span class="process-number">03</span>
+                <i class="fas fa-palette process-icon"></i>
+            </div>
+            <h3>Creation</h3>
+            <p>Designing and refining every detail with precision.</p>
+        </div>
 
-    <div class="process-box">
-        <span>01</span>
-        <h3>Consultation</h3>
-        <p>Understanding your goals and project requirements.</p>
+        <div class="process-box">
+            <div class="process-header">
+                <span class="process-number">04</span>
+                <i class="fas fa-paper-plane process-icon"></i>
+            </div>
+            <h3>Delivery</h3>
+            <p>Providing final files ready for use and implementation.</p>
+        </div>
     </div>
-
-    <div class="process-box">
-        <span>02</span>
-        <h3>Concept</h3>
-        <p>Developing creative directions and visual ideas.</p>
-    </div>
-
-    <div class="process-box">
-        <span>03</span>
-        <h3>Creation</h3>
-        <p>Designing and refining every detail with precision.</p>
-    </div>
-
-    <div class="process-box">
-        <span>04</span>
-        <h3>Delivery</h3>
-        <p>Providing final files ready for use and implementation.</p>
-    </div>
-<section class="stats-section">
-
-    <div class="stat-box">
-        <h2>20+</h2>
-        <p>Projects</p>
-    </div>
-
-    <div class="stat-box">
-        <h2>100%</h2>
-        <p>Satisfaction</p>
-    </div>
-
-    <div class="stat-box">
-        <h2>3+</h2>
-        <p>Years Learning</p>
-    </div>
-
 </section>
 
 <div class="sekcja-boxow" id="boxSection">
@@ -176,13 +121,11 @@
             <span>Why choose me as your graphic designer?</span>
         </div>
     </a>
-
     <a href="services.html" class="kafelek-link">
         <div class="kafelek">
             <span>About me</span>
         </div>
     </a>
-
     <a href="portfolio.html" class="kafelek-link">
         <div class="kafelek">
             <span>Completed commissions</span>
@@ -190,64 +133,48 @@
     </a>
 </div>
 
-
-
-
-
-
 <div class="kontakt-sekcja" id="kontakt">
-
     <div class="kontakt-lewa">
         <h3>GET IN TOUCH</h3>
-
         <div class="kontakt-dane-pionowe">
             <a href="https://www.instagram.com/pink_r3d/" target="_blank" class="kontakt-link">
                 <i class="fab fa-instagram"></i> @pink_r3d
             </a>
-
             <div class="kontakt-link">
                 <i class="fas fa-phone"></i> 725 204 945
             </div>
         </div>
     </div>
-
     <div class="kontakt-prawa">
-        <img src="grafika/ig.PNG" class="zdjecie-kontakt">
+        <img src="grafika/ig.PNG" class="zdjecie-kontakt" alt="Contact">
     </div>
 </div>
-
-
 
 <footer>
     <p>2026 Natalia Gulińska</p>
     <p>Student ID: <span class="footer-student-id">s35682</span></p>
 </footer>
-<script>
-function toggleMenu() {
-    document.getElementById("mobileMenu").classList.toggle("active");
-}
-</script>
-</body>
 
 <div class="kontener-tla">
     <video autoplay loop muted playsinline class="nowe-tlo-strony">
         <source src="filmy/film.mp4" type="video/mp4">
     </video>
 </div>
-</html>
+
 <script>
+function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("active");
+}
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-
             const kafelki = entry.target.querySelectorAll('.kafelek');
-
             kafelki.forEach((kafelek, index) => {
                 setTimeout(() => {
                     kafelek.classList.add('wlecial');
                 }, index * 200);
             });
-
             observer.unobserve(entry.target);
         }
     });

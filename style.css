@@ -1,6 +1,29 @@
 body { background-color: black; margin: 0px; color: white; font-family: Arial, sans-serif; }
 header { position: relative; width: 100%; height: 100vh; overflow: hidden; margin: 0px; }
-.video-tlo { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.1); min-width: 100%; min-height: 100%; object-fit: cover; z-index: 1; filter: blur(5px); }
+
+/* Efekt blura przeniesiony na warstwę wyżej (header::after) */
+.video-tlo { 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    min-width: 100%; 
+    min-height: 100%; 
+    object-fit: cover; 
+    z-index: 1; 
+    transform: translate(-50%, -50%) scale(1.1); 
+}
+
+/* Nowa nakładka rozmywająca na wideo w nagłówku */
+header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2; /* Nad wideo, ale pod tekstem menu i wizytówki */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    pointer-events: none; /* Pozwala klikać elementy pod spodem */
+}
+
 .hamburger, .close-btn { display: none; }
 .menu-gorne { position: absolute; top: 30px; right: 0; text-align: right; padding-right: 50px; z-index: 10; width: 100%; }
 .ukryty-naglowek { display: none; }
@@ -18,7 +41,29 @@ header { position: relative; width: 100%; height: 100vh; overflow: hidden; margi
 }
 
 .kontener-tla { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -2; background-color: black; overflow: hidden; }
-.nowe-tlo-strony { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; object-fit: cover; filter: blur(4px); opacity: 0.15; }
+
+/* Efekt blura przeniesiony na kontener-tla::after */
+.nowe-tlo-strony { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100vh; 
+    object-fit: cover; 
+    opacity: 0.15; 
+}
+
+/* Nowa nakładka rozmywająca na drugie wideo w tle strony */
+.kontener-tla::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1; /* Nad wideo z opacity 0.15 */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    pointer-events: none;
+}
+
 .wizytowka { position: absolute; bottom: 300px; left: 50px; z-index: 5; text-align: left; }
 .glowny-napis { color: white; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 150px; font-weight: 700; margin: 0px 0px 5px 0px; }
 .podnapis { color: white; font-family: Arial, sans-serif; font-size: 40px; text-transform: uppercase; letter-spacing: 4px; margin: 0px; opacity: 0.9; }
@@ -197,72 +242,24 @@ html { scroll-behavior: smooth; }
 
 @media (max-width: 500px) {
     .galeria-grid { column-count: 1; }
-}/* STYLOWANIE SEKCOJI KONTAKTU DLA PODSTRONY PORTFOLIO NA SMARTFONACH */
+}
+
+/* STYLOWANIE SEKCOJI KONTAKTU DLA PODSTRONY PORTFOLIO NA SMARTFONACH */
 @media only screen and (max-width: 768px) {
-    .portfolio-page .kontakt-sekcja {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 20px;
-        text-align: center;
-    }
+    .portfolio-page .kontakt-sekcja { flex-direction: column !important; align-items: center !important; gap: 20px; text-align: center; }
+    .portfolio-page .kontakt-lewa { width: 100%; text-align: center; }
+    .portfolio-page .kontakt-prawa { width: 100%; display: flex; justify-content: center; }
+    .portfolio-page .zdjecie-kontakt { max-width: 200px; height: auto; }
+    .portfolio-page .kontakt-lewa h3 { font-size: 2.5rem; margin-bottom: 20px; text-align: center; }
+    .portfolio-page .kontakt-link { justify-content: center; }
+}
 
-    .portfolio-page .kontakt-lewa {
-        width: 100%;
-        text-align: center;
-    }
-
-    .portfolio-page .kontakt-prawa {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .portfolio-page .zdjecie-kontakt {
-        max-width: 200px;
-        height: auto;
-    }
-
-    .portfolio-page .kontakt-lewa h3 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .portfolio-page .kontakt-link {
-        justify-content: center;
-    }
-}/* STYLOWANIE SEKCJI KONTAKTU DLA STRONY GŁÓWNEJ NA SMARTFONACH */
+/* STYLOWANIE SEKCJI KONTAKTU DLA STRONY GŁÓWNEJ NA SMARTFONACH */
 @media only screen and (max-width: 768px) {
-    .home-page .kontakt-sekcja {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 20px;
-        text-align: center;
-    }
-
-    .home-page .kontakt-lewa {
-        width: 100%;
-        text-align: center;
-    }
-
-    .home-page .kontakt-prawa {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .home-page .zdjecie-kontakt {
-        max-width: 200px;
-        height: auto;
-    }
-
-    .home-page .kontakt-lewa h3 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .home-page .kontakt-link {
-        justify-content: center;
-    }
+    .home-page .kontakt-sekcja { flex-direction: column !important; align-items: center !important; gap: 20px; text-align: center; }
+    .home-page .kontakt-lewa { width: 100%; text-align: center; }
+    .home-page .kontakt-prawa { width: 100%; display: flex; justify-content: center; }
+    .home-page .zdjecie-kontakt { max-width: 200px; height: auto; }
+    .home-page .kontakt-lewa h3 { font-size: 2.5rem; margin-bottom: 20px; text-align: center; }
+    .home-page .kontakt-link { justify-content: center; }
 }

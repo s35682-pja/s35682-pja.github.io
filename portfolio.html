@@ -1,55 +1,36 @@
- <!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
+<body class="portfolio-page">
 
 <header class="services-hero">
-<header class="services-hero">
-
     <video autoplay loop muted playsinline class="video-tlo">
         <source src="filmy/film.mp4" type="video/mp4">
     </video>
-<button class="hamburger" onclick="toggleMenu()">☰ MENU</button>
+    
+    <button class="hamburger" onclick="toggleMenu()">☰ MENU</button>
 
-<nav class="menu-gorne" id="mobileMenu">
-    <button class="close-btn" onclick="toggleMenu()">× CLOSE</button>
+    <nav class="menu-gorne" id="mobileMenu">
+        <button class="close-btn" onclick="toggleMenu()">× CLOSE</button>
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="portfolio.html" class="menu-link">Portfolio</a>
+        <a href="services.html" class="menu-link">Services</a>
+        <a href="faq.html" class="menu-link">FAQ</a>
+        <a href="#kontakt" class="menu-link">Contact</a>
+    </nav>
 
-    <a href="index.html" class="menu-link">Home</a>
-    <a href="portfolio.html" class="menu-link">Portfolio</a>
-    <a href="services.html" class="menu-link">Services</a>
-    <a href="faq.html" class="menu-link">FAQ</a>
-    <a href="#kontakt" class="menu-link">Contact</a>
-</nav>
-   <div class="wizytowka">
-    <h1 class="glowny-napis">PORTFOLIO</h1>
-    <p class="podnapis">Creative Solutions & Graphic Design</p>
-</div>
+    <div class="wizytowka">
+        <h1 class="glowny-napis">PORTFOLIO</h1>
+        <p class="podnapis">Creative Solutions & Graphic Design</p>
+    </div>
 </header>
-```
-<video autoplay loop muted playsinline class="video-tlo">
-    <source src="filmy/film.mp4" type="video/mp4">
-</video>
-
-<div class="hero-overlay"></div>
-
-<div class="services-hero-content">
-    <h1>PORTFOLIO</h1>
-    <p>Creative solutions tailored to your vision.</p>
-</div>
-
-
-</header>
-
-
-
 
 <section class="portfolio-galeria">
     <div class="galeria-grid">
@@ -78,11 +59,8 @@
         <img src="grafika/23.jpg" alt="" onclick="openImage(this.src)">
         <img src="grafika/24.jpg" alt="" onclick="openImage(this.src)">
         <img src="grafika/25.jpg" alt="" onclick="openImage(this.src)">
-        
     </div>
 </section>
-
-
 
 <div class="sekcja-boxow" id="boxSection">
     <a href="faq.html" class="kafelek-link">
@@ -90,13 +68,11 @@
             <span>Why choose me as your graphic designer?</span>
         </div>
     </a>
-
     <a href="services.html" class="kafelek-link">
         <div class="kafelek">
             <span>What services do I offer?</span>
         </div>
     </a>
-
     <a href="index.html" class="kafelek-link">
         <div class="kafelek">
             <span>About Me</span>
@@ -104,100 +80,62 @@
     </a>
 </div>
 
-
-
-
-
-
-
-
-
 <div class="kontakt-sekcja" id="kontakt">
-
     <div class="kontakt-lewa">
         <h3>GET IN TOUCH</h3>
-
         <div class="kontakt-dane-pionowe">
             <a href="https://www.instagram.com/pink_r3d/" target="_blank" class="kontakt-link">
                 <i class="fab fa-instagram"></i> @pink_r3d
             </a>
-
             <div class="kontakt-link">
                 <i class="fas fa-phone"></i> 725 204 945
             </div>
         </div>
     </div>
-
     <div class="kontakt-prawa">
-        <img src="grafika/ig.PNG" class="zdjecie-kontakt">
+        <img src="grafika/ig.PNG" class="zdjecie-kontakt" alt="Contact">
     </div>
 </div>
-
-
 
 <footer>
     <p>2026 Natalia Gulińska</p>
     <p>Student ID: <span class="footer-student-id">s35682</span></p>
 </footer>
-<script>
-function toggleMenu() {
-    document.getElementById("mobileMenu").classList.toggle("active");
-}
-</script>
-</body>
+
+<div id="lightbox" class="lightbox" onclick="closeImage()">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="" alt="Lightbox">
+</div>
 
 <div class="kontener-tla">
     <video autoplay loop muted playsinline class="nowe-tlo-strony">
         <source src="filmy/film.mp4" type="video/mp4">
     </video>
 </div>
-</html>
-
-
-
-
-
-
-
-
-<div id="lightbox" class="lightbox" onclick="closeImage()">
-    <span class="close-lightbox">&times;</span>
-    <img id="lightbox-img" src="">
-</div>
 
 <script>
+function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("active");
+}
+
 function openImage(src) {
-    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox").style.style.display = "flex";
     document.getElementById("lightbox-img").src = src;
 }
 
 function closeImage() {
-    document.getElementById("lightbox").style.display = "none";
+    document.getElementById("lightbox").style.style.display = "none";
 }
-</script>
 
-
-
-
-
-
-
-
-
-
-<script>
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-
             const kafelki = entry.target.querySelectorAll('.kafelek');
-
             kafelki.forEach((kafelek, index) => {
                 setTimeout(() => {
                     kafelek.classList.add('wlecial');
                 }, index * 200);
             });
-
             observer.unobserve(entry.target);
         }
     });

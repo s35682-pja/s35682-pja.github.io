@@ -197,4 +197,72 @@ html { scroll-behavior: smooth; }
 
 @media (max-width: 500px) {
     .galeria-grid { column-count: 1; }
+}/* STYLOWANIE SEKCOJI KONTAKTU DLA PODSTRONY PORTFOLIO NA SMARTFONACH */
+@media only screen and (max-width: 768px) {
+    .portfolio-page .kontakt-sekcja {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .portfolio-page .kontakt-lewa {
+        width: 100%;
+        text-align: center;
+    }
+
+    .portfolio-page .kontakt-prawa {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .portfolio-page .zdjecie-kontakt {
+        max-width: 200px;
+        height: auto;
+    }
+
+    .portfolio-page .kontakt-lewa h3 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .portfolio-page .kontakt-link {
+        justify-content: center;
+    }
+}/* STYLOWANIE SEKCJI KONTAKTU DLA STRONY GŁÓWNEJ NA SMARTFONACH */
+@media only screen and (max-width: 768px) {
+    .home-page .kontakt-sekcja {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .home-page .kontakt-lewa {
+        width: 100%;
+        text-align: center;
+    }
+
+    .home-page .kontakt-prawa {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .home-page .zdjecie-kontakt {
+        max-width: 200px;
+        height: auto;
+    }
+
+    .home-page .kontakt-lewa h3 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .home-page .kontakt-link {
+        justify-content: center;
+    }
 }

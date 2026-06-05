@@ -1,160 +1,118 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strona Główna</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona Główna</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-<div class="kontener-tla">
-<video autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" class="nowe-tlo-strony">
-<source src="filmy/film.mp4" type="video/mp4">
-</video>
-</div>
-<header>
-<video autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" class="video-tlo">
-<source src="filmy/film.mp4" type="video/mp4">
-</video>
-<div class="wizytowka">
-<h1 class="glowny-napis">Natalia Gulińska</h1>
-<p class="podnapis">Graphic Designer</p>
-</div>
-<button class="hamburger" onclick="toggleMenu()">☰ MENU</button>
-<nav class="menu-gorne" id="mobileMenu">
-<button class="close-btn" onclick="toggleMenu()">× CLOSE</button>
+<body class="home-page">
 
-<a href="portfolio.html" class="menu-link">Portfolio</a>
-<a href="services.html" class="menu-link">Services</a>
-<a href="faq.html" class="menu-link">FAQ</a>
-<a href="#kontakt" class="menu-link">Contact</a>
-</nav>
-</header>
-<h2 class="wielki-naglowek-cv">Welcome to my digital cv!</h2>
-<div class="o-mnie-sekcja">
-<ul>
-<li><strong>About Me:</strong> I am a dedicated Graphic Design student at the Polish-Japanese Academy of Information Technology (PJATK) in Warsaw. My academic journey is fueled by a deep passion for visual storytelling and a constant desire to master the tools of modern digital design, allowing me to bridge the gap between creative theory and professional practice.</li>
-<li><strong>My Achievements:</strong> I am incredibly proud to have been awarded a prestigious academic scholarship in recognition of my hard work, consistent dedication, and creative potential. Beyond my academic success, I have also completed several design projects for private clients, consistently delivering work that meets their expectations and leaves them fully satisfied with the final results.</li>
-<li><strong>My Mission:</strong> I believe that truly effective design goes far beyond mere aesthetics; my mission is to create visual solutions that are both purposeful and impactful. I strive to solve complex communication problems through intentional design choices, ensuring that every project I undertake resonates with the audience while maintaining a high standard of functional beauty.</li>
-<li><strong>Let's Create:</strong> Whether you need a brand identity, illustration, or complex graphic solutions, I am here to help you bring your vision to life!</li>
-</ul>
+<div class="kontener-tla">
+    <video autoplay loop muted playsinline class="nowe-tlo-strony">
+        <source src="filmy/film.mp4" type="video/mp4">
+    </video>
 </div>
+
+<header>
+    <video autoplay loop muted playsinline class="video-tlo">
+        <source src="filmy/film.mp4" type="video/mp4">
+    </video>
+    <div class="wizytowka">
+        <h1 class="glowny-napis">Natalia Gulińska</h1>
+        <p class="podnapis">Graphic Designer</p>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">☰ MENU</button>
+    <nav class="menu-gorne" id="mobileMenu">
+        <button class="close-btn" onclick="toggleMenu()">× CLOSE</button>
+        <a href="portfolio.html" class="menu-link">Portfolio</a>
+        <a href="services.html" class="menu-link">Services</a>
+        <a href="faq.html" class="menu-link">FAQ</a>
+        <a href="#kontakt" class="menu-link">Contact</a>
+    </nav>
+</header>
+
+<h2 class="wielki-naglowek-cv">Welcome to my digital cv!</h2>
+
+<div class="o-mnie-sekcja">
+    <ul>
+        <li><strong>About Me:</strong> I am a dedicated Graphic Design student at the Polish-Japanese Academy of Information Technology (PJATK) in Warsaw. My academic journey is fueled by a deep passion for visual storytelling and a constant desire to master the tools of modern digital design, allowing me to bridge the gap between creative theory and professional practice.</li>
+        <li><strong>My Achievements:</strong> I am incredibly proud to have been awarded a prestigious academic scholarship in recognition of my hard work, consistent dedication, and creative potential. Beyond my academic success, I have also completed several design projects for private clients, consistently delivering work that meets their expectations and leaves them fully satisfied with the final results.</li>
+        <li><strong>My Mission:</strong> I believe that truly effective design goes far beyond mere aesthetics; my mission is to create visual solutions that are both purposeful and impactful. I strive to solve complex communication problems through intentional design choices, ensuring that every project I undertake resonates with the audience while maintaining a high standard of functional beauty.</li>
+        <li><strong>Let's Create:</strong> Whether you need a brand identity, illustration, or complex graphic solutions, I am here to help you bring your vision to life!</li>
+    </ul>
+</div>
+
 <div class="sekcja-boxow" id="boxSection">
-<a href="faq.html" class="kafelek-link">
-<div class="kafelek"><span>Why choose me as your graphic designer?</span></div>
-</a>
-<a href="services.html" class="kafelek-link">
-<div class="kafelek"><span>What services do I offer?</span></div>
-</a>
-<a href="portfolio.html" class="kafelek-link">
-<div class="kafelek"><span>Completed commissions</span></div>
-</a>
+    <a href="faq.html" class="kafelek-link">
+        <div class="kafelek"><span>Why choose me as your graphic designer?</span></div>
+    </a>
+    <a href="services.html" class="kafelek-link">
+        <div class="kafelek"><span>What services do I offer?</span></div>
+    </a>
+    <a href="portfolio.html" class="kafelek-link">
+        <div class="kafelek"><span>Completed commissions</span></div>
+    </a>
 </div>
 
 <div class="kontakt-sekcja" id="kontakt">
-
     <div class="kontakt-lewa">
         <h3>GET IN TOUCH</h3>
-
         <div class="kontakt-dane-pionowe">
             <a href="https://www.instagram.com/pink_r3d/" target="_blank" class="kontakt-link">
                 <i class="fab fa-instagram"></i> @pink_r3d
             </a>
-
             <div class="kontakt-link">
                 <i class="fas fa-phone"></i> 725 204 945
             </div>
         </div>
     </div>
-
     <div class="kontakt-prawa">
-        <img src="grafika/ig.PNG" class="zdjecie-kontakt">
+        <img src="grafika/ig.PNG" class="zdjecie-kontakt" alt="Contact Image">
     </div>
+</div>
 
-</div>
-</div>
-</div>
-</div>
-</div> 
- 
 <footer>
-<p>2026 Natalia Gulińska</p>
-<p>Student ID: <span class="footer-student-id">s35682</span></p>
+    <p>2026 Natalia Gulińska</p>
+    <p>Student ID: <span class="footer-student-id">s35682</span></p>
 </footer>
+
 <script>
+function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("active");
+}
 
-        function toggleMenu() {
-
-            document.getElementById("mobileMenu").classList.toggle("active");
-
-        }
-
-        // Skrypt animujący wlot kafelków
-
-        const observer = new IntersectionObserver((entries) => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    const kafelki = entry.target.querySelectorAll('.kafelek');
-
-                    kafelki.forEach((kafelek, index) => {
-
-                        setTimeout(() => { kafelki[index].classList.add('wlecial'); }, index * 200);
-
-                    });
-
-                    observer.unobserve(entry.target);
-
-                }
-
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const kafelki = entry.target.querySelectorAll('.kafelek');
+            kafelki.forEach((kafelek, index) => {
+                setTimeout(() => { kafelek.classList.add('wlecial'); }, index * 200);
             });
-
-        }, { threshold: 0.3 });
-
-        observer.observe(document.getElementById('boxSection'));
-</script>
-<script>
-
-    window.addEventListener("load", function() {
-
-        if (window.location.hash === "#kontakt") {
-
-            // Czyścimy adres URL, usuwając #kontakt
-
-            history.replaceState(null, null, ' ');
-
-            // Przewijamy na samą górę
-
-           
-
+            observer.unobserve(entry.target);
         }
-
     });
-</script>
+}, { threshold: 0.3 });
 
-<script>
-window.addEventListener("DOMContentLoaded", function () {
+observer.observe(document.getElementById('boxSection'));
 
+window.addEventListener("load", function() {
     if (window.location.hash === "#kontakt") {
+        history.replaceState(null, null, ' ');
+    }
+});
 
+window.addEventListener("DOMContentLoaded", function () {
+    if (window.location.hash === "#kontakt") {
         const el = document.getElementById("kontakt");
-
         if (el) {
-
             setTimeout(() => {
                 el.scrollIntoView({ behavior: "smooth", block: "start" });
             }, 300);
-
         }
     }
-
 });
 </script>
-
 </body>
 </html>
- 
- 

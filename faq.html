@@ -1,129 +1,214 @@
- <!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Frequently Asked Questions</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
+<body class="faq-page">
 
 <header class="services-hero">
-<header class="services-hero">
-
     <video autoplay loop muted playsinline class="video-tlo">
         <source src="filmy/film.mp4" type="video/mp4">
     </video>
-<button class="hamburger" onclick="toggleMenu()">☰ MENU</button>
+    
+    <button class="hamburger" onclick="toggleMenu()">☰ MENU</button>
 
-<nav class="menu-gorne" id="mobileMenu">
-    <button class="close-btn" onclick="toggleMenu()">× CLOSE</button>
+    <nav class="menu-gorne" id="mobileMenu">
+        <button class="close-btn" onclick="toggleMenu()">× CLOSE</button>
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="portfolio.html" class="menu-link">Portfolio</a>
+        <a href="services.html" class="menu-link">Services</a>
+        <a href="faq.html" class="menu-link">FAQ</a>
+        <a href="#kontakt" class="menu-link">Contact</a>
+    </nav>
 
-    <a href="index.html" class="menu-link">Home</a>
-    <a href="portfolio.html" class="menu-link">Portfolio</a>
-    <a href="services.html" class="menu-link">Services</a>
-    <a href="faq.html" class="menu-link">FAQ</a>
-    <a href="#kontakt" class="menu-link">Contact</a>
-</nav>
-   <div class="wizytowka">
-    <h1 class="glowny-napis">FAQ</h1>
-    <p class="podnapis">Frequently Asked Questions</p>
-</div>
-</header>
-```
-<video autoplay loop muted playsinline class="video-tlo">
-    <source src="filmy/film.mp4" type="video/mp4">
-</video>
-
-<div class="hero-overlay"></div>
-
-<div class="services-hero-content">
-    <h1>FAQ</h1>
-    <p>Frequently Asked Questions</p>
-</div>
-```
-
+    <div class="wizytowka">
+        <h1 class="glowny-napis">FAQ</h1>
+        <p class="podnapis">Frequently Asked Questions</p>
+    </div>
 </header>
 
+<section class="faq-kontener">
+    <h2 class="faq-naglowek">Got Questions? I've Got Answers</h2>
+    
+    <div class="faq-lista">
+        <div class="faq-item">
+            <button class="faq-pytanie" onclick="toggleFaq(this)">
+                <span>What is your typical design process and workflow?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-odpowiedz">
+                <p>My workflow is divided into four main stages: Research, Conceptualization, Development, and Delivery. First, we discuss your goals and brand values. Then, I sketch ideas and create digital drafts. After your feedback, I refine the chosen concept to perfection and deliver all necessary final source files.</p>
+            </div>
+        </div>
 
+        <div class="faq-item">
+            <button class="faq-pytanie" onclick="toggleFaq(this)">
+                <span>Which design software and digital tools do you use?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-odpowiedz">
+                <p>I work with a wide range of professional, industry-standard software. For layout and print media, I use <strong>Adobe InDesign</strong>. For digital sketching, digital painting, and modern illustrations, I leverage <strong>Adobe Fresco</strong>. When it comes to 3D modeling and complex digital assets, I work in <strong>Autodesk Maya</strong>. Additionally, my daily toolkit includes Adobe Photoshop, Adobe Illustrator, and Figma for UI/UX design components.</p>
+            </div>
+        </div>
 
+        <div class="faq-item">
+            <button class="faq-pytanie" onclick="toggleFaq(this)">
+                <span>How long does it usually take to complete a project?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-odpowiedz">
+                <p>Turnaround time strictly depends on the complexity of the commission. Simple graphic assets, social media banners, or single illustrations usually take 3 to 5 business days. Full visual identity systems, corporate branding, or comprehensive design packages can take between 2 to 4 weeks.</p>
+            </div>
+        </div>
 
+        <div class="faq-item">
+            <button class="faq-pytanie" onclick="toggleFaq(this)">
+                <span>Do you offer revisions, and how many are included?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-odpowiedz">
+                <p>Yes, customer satisfaction is my highest priority! Every standard project includes up to 3 rounds of revisions completely free of charge. This allows us to fine-tune details, typography, and color schemes. Any additional modifications beyond these rounds can be requested for an adjusted hourly fee.</p>
+            </div>
+        </div>
 
+        <div class="faq-item">
+            <button class="faq-pytanie" onclick="toggleFaq(this)">
+                <span>What file formats will I receive upon project completion?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-odpowiedz">
+                <p>You will receive full commercial rights and a comprehensive package of files. For digital use, I provide high-resolution PNG, JPG, and SVG files. For professional printing purposes, you will get print-ready CMYK PDF files with bleeds. Upon agreement, I also hand over original editable source files (AI, PSD, or Figma).</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-pytanie" onclick="toggleFaq(this)">
+                <span>Are you available for freelance projects or long-term agency internships?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-odpowiedz">
+                <p>Absolutely! I am always open to exciting freelance commissions, creative collaborations, and remote or hybrid agency internships. As a PJATK student, I am eager to gather practical experience, expand my portfolio, and bring fresh, innovative ideas to your design team.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-pytanie" onclick="toggleFaq(this)">
+                <span>Can you adapt your personal artistic style to match my existing brand?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-odpowiedz">
+                <p>Yes, versatility is one of my strongest core skills. While I have my own artistic preferences, I can easily adapt my creative style to match your brand's existing guidelines. Whether you need a minimalistic, corporate style, a bold modern look, or hand-drawn organic illustrations, I can accommodate your visual preferences perfectly.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-pytanie" onclick="toggleFaq(this)">
+                <span>How do we handle communication and feedback during the project?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-odpowiedz">
+                <p>I usually prefer structured communication via email or dedicated professional messaging platforms to keep track of all requests. For complex design updates, I often send interactive presentation links (like Figma or cloud previews) where you can easily leave digital comments directly on the layouts.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-pytanie" onclick="toggleFaq(this)">
+                <span>Do I need to provide any materials before you start designing?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-odpowiedz">
+                <p>It is highly recommended! To achieve the best results, it helps if you provide a clear design brief, your existing high-resolution vector logo files, brand style books, text copy, and any inspirational moodboards or reference images that reflect the look and feel you want to achieve.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-pytanie" onclick="toggleFaq(this)">
+                <span>What are your payment terms and methods for freelance design commissions?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-odpowiedz">
+                <p>For larger commercial projects and new independent clients, I require an upfront deposit (usually 30% to 50%) before I begin drafting. The final remaining balance is due upon approval of the final concept, right before the high-resolution source files are officially transferred. Payments can be processed via standard bank transfer.</p>
+            </div>
+        </div>
+    </div>
+</section>
 <div class="sekcja-boxow" id="boxSection">
     <a href="index.html" class="kafelek-link">
         <div class="kafelek">
             <span>About Me</span>
         </div>
     </a>
-
     <a href="services.html" class="kafelek-link">
         <div class="kafelek">
             <span>What services do I offer?</span>
         </div>
     </a>
-
     <a href="portfolio.html" class="kafelek-link">
         <div class="kafelek">
             <span>Completed commissions</span>
         </div>
     </a>
 </div>
-<div class="kontakt-sekcja" id="kontakt">
 
+<div class="kontakt-sekcja" id="kontakt">
     <div class="kontakt-lewa">
         <h3>GET IN TOUCH</h3>
-
         <div class="kontakt-dane-pionowe">
             <a href="https://www.instagram.com/pink_r3d/" target="_blank" class="kontakt-link">
                 <i class="fab fa-instagram"></i> @pink_r3d
             </a>
-
             <div class="kontakt-link">
                 <i class="fas fa-phone"></i> 725 204 945
             </div>
         </div>
     </div>
-
     <div class="kontakt-prawa">
-        <img src="grafika/ig.PNG" class="zdjecie-kontakt">
+        <img src="grafika/ig.PNG" class="zdjecie-kontakt" alt="Contact">
     </div>
 </div>
-
-
 
 <footer>
     <p>2026 Natalia Gulińska</p>
     <p>Student ID: <span class="footer-student-id">s35682</span></p>
 </footer>
-<script>
-function toggleMenu() {
-    document.getElementById("mobileMenu").classList.toggle("active");
-}
-</script>
-</body>
 
 <div class="kontener-tla">
     <video autoplay loop muted playsinline class="nowe-tlo-strony">
         <source src="filmy/film.mp4" type="video/mp4">
     </video>
 </div>
-</html>
+
 <script>
+function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+// Funkcja obsługująca rozwijanie FAQ
+function toggleFaq(button) {
+    button.classList.toggle("active");
+    const odpowiedz = button.nextElementSibling;
+    
+    if (button.classList.contains("active")) {
+        odpowiedz.style.maxHeight = odpowiedz.scrollHeight + "px";
+    } else {
+        odpowiedz.style.maxHeight = "0";
+    }
+}
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-
             const kafelki = entry.target.querySelectorAll('.kafelek');
-
             kafelki.forEach((kafelek, index) => {
                 setTimeout(() => {
                     kafelek.classList.add('wlecial');
                 }, index * 200);
             });
-
             observer.unobserve(entry.target);
         }
     });

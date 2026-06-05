@@ -262,4 +262,150 @@ html { scroll-behavior: smooth; }
     .home-page .zdjecie-kontakt { max-width: 200px; height: auto; }
     .home-page .kontakt-lewa h3 { font-size: 2.5rem; margin-bottom: 20px; text-align: center; }
     .home-page .kontakt-link { justify-content: center; }
+}/* ==========================================================================
+   STYLE DLA PODSTRONY FAQ
+   ========================================================================== */
+
+.faq-kontener {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.faq-naglowek {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.faq-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.faq-pytanie {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.faq-pytanie i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.faq-pytanie.active {
+    color: #ff3366; /* Twój kolor akcentu, możesz zmienić np. na róż/czerwień */
+}
+
+.faq-pytanie.active i {
+    transform: rotate(180deg);
+    color: #ff3366;
+}
+
+.faq-odpowiedz {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.faq-odpowiedz p {
+    padding: 0 25px 20px 25px;
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* RESPONSYWNOŚĆ DLA SEKCJI FAQ I KONTAKTU NA TELEFONIE */
+@media only screen and (max-width: 768px) {
+    .faq-kontener {
+        margin: 30px 15px;
+        padding: 25px 15px;
+    }
+
+    .faq-naglowek {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+
+    .faq-pytanie {
+        padding: 15px 20px;
+        font-size: 1rem;
+    }
+
+    .faq-odpowiedz p {
+        padding: 0 20px 15px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Dopasowanie sekcji kontaktu analogicznie do poprzednich stron */
+    .faq-page .kontakt-sekcja {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .faq-page .kontakt-lewa {
+        width: 100%;
+        text-align: center;
+    }
+
+    .faq-page .kontakt-prawa {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .faq-page .zdjecie-kontakt {
+        max-width: 200px;
+        height: auto;
+    }
+
+    .faq-page .kontakt-lewa h3 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .faq-page .kontakt-link {
+        justify-content: center;
+    }
 }

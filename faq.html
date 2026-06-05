@@ -137,6 +137,7 @@
         </div>
     </div>
 </section>
+
 <div class="sekcja-boxow" id="boxSection">
     <a href="index.html" class="kafelek-link">
         <div class="kafelek">
@@ -154,6 +155,25 @@
         </div>
     </a>
 </div>
+
+<section class="recent-work-sekcja">
+    <h2 class="wielki-naglowek-cv">My Recent Work</h2>
+
+    <div class="recent-work-pasek">
+        <a href="portfolio.html" class="recent-work-link">
+            <img src="grafika/7.jpg" alt="Recent Work 7" class="recent-work-img">
+        </a>
+        <a href="portfolio.html" class="recent-work-link">
+            <img src="grafika/8.jpg" alt="Recent Work 8" class="recent-work-img">
+        </a>
+        <a href="portfolio.html" class="recent-work-link">
+            <img src="grafika/11.jpg" alt="Recent Work 11" class="recent-work-img">
+        </a>
+        <a href="portfolio.html" class="recent-work-link">
+            <img src="grafika/5.jpg" alt="Recent Work 5" class="recent-work-img">
+        </a>
+    </div>
+</section>
 
 <div class="kontakt-sekcja" id="kontakt">
     <div class="kontakt-lewa">
@@ -188,7 +208,6 @@ function toggleMenu() {
     document.getElementById("mobileMenu").classList.toggle("active");
 }
 
-// Funkcja obsługująca rozwijanie FAQ
 function toggleFaq(button) {
     button.classList.toggle("active");
     const odpowiedz = button.nextElementSibling;

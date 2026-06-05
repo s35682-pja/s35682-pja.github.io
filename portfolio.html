@@ -118,13 +118,14 @@ function toggleMenu() {
     document.getElementById("mobileMenu").classList.toggle("active");
 }
 
+// Naprawiona funkcja - usunięto zdublowane ".style"
 function openImage(src) {
-    document.getElementById("lightbox").style.style.display = "flex";
+    document.getElementById("lightbox").style.display = "flex";
     document.getElementById("lightbox-img").src = src;
 }
 
 function closeImage() {
-    document.getElementById("lightbox").style.style.display = "none";
+    document.getElementById("lightbox").style.display = "none";
 }
 
 const observer = new IntersectionObserver((entries) => {

@@ -1,502 +1,508 @@
-body { background-color: black; margin: 0px; color: white; font-family: Arial, sans-serif; }
-header { position: relative; width: 100%; height: 100vh; overflow: hidden; margin: 0px; }
-
-/* Efekt blura przeniesiony na warstwę wyżej (header::after) */
-.video-tlo { 
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    min-width: 100%; 
-    min-height: 100%; 
-    object-fit: cover; 
-    z-index: 1; 
-    transform: translate(-50%, -50%) scale(1.1); 
-}
-
-/* Nowa nakładka rozmywająca na wideo w nagłówku */
-header::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 2; /* Nad wideo, ale pod tekstem menu i wizytówki */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    pointer-events: none; /* Pozwala klikać elementy pod spodem */
-}
-
-.hamburger, .close-btn { display: none; }
-.menu-gorne { position: absolute; top: 30px; right: 0; text-align: right; padding-right: 50px; z-index: 10; width: 100%; }
-.ukryty-naglowek { display: none; }
-.menu-link { color: white; text-decoration: none; text-transform: uppercase; font-size: 30px; font-family: 'Arial Black', Gadget, sans-serif; letter-spacing: 1px; transition: color 0.3s ease; margin: 0 12px; display: inline-block; }
-.menu-link:hover { color: #000000; cursor: pointer; }
-.sidebar { color: white; font-size: 18px; font-family: 'Arial Black', Gadget, sans-serif; }
-
-@media (max-width: 768px) {
-   .hamburger { display: block; position: absolute; top: 20px; right: 20px; z-index: 15; background: rgba(0, 0, 0, 0.8); color: white; border: 1px solid white; padding: 10px 15px; font-family: 'Arial Black', sans-serif; font-size: 14px; cursor: pointer; }
-   .close-btn { display: block; align-self: flex-end; background: none; border: none; color: white; font-size: 35px; cursor: pointer; margin-bottom: 40px; font-family: Arial, sans-serif; }
-   .menu-gorne { display: none; flex-direction: column; justify-content: flex-start; align-items: center; position: fixed; top: 0; right: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.95); padding: 30px; box-sizing: border-box; z-index: 100; text-align: center; }
-   .menu-gorne.active { display: flex; }
-   .separator { display: none; }
-   .menu-link { font-size: 26px; margin: 15px 0; width: 100%; display: block; }
-}
-
-.kontener-tla { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -2; background-color: black; overflow: hidden; }
-
-/* Efekt blura przeniesiony na kontener-tla::after */
-.nowe-tlo-strony { 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100vh; 
-    object-fit: cover; 
-    opacity: 0.15; 
-}
-
-/* Nowa nakładka rozmywająca na drugie wideo w tle strony */
-.kontener-tla::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1; /* Nad wideo z opacity 0.15 */
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    pointer-events: none;
-}
-
-.wizytowka { position: absolute; bottom: 300px; left: 50px; z-index: 5; text-align: left; }
-.glowny-napis { color: white; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 150px; font-weight: 700; margin: 0px 0px 5px 0px; }
-.podnapis { color: white; font-family: Arial, sans-serif; font-size: 40px; text-transform: uppercase; letter-spacing: 4px; margin: 0px; opacity: 0.9; }
-
-footer {
-   display: block;
-   clear: both;
-   position: relative;
-   width: 100%;
-   background-color: #0b0b0b;
-   color: #ffffff;
-   text-align: center;
-   padding: 35px 20px;
-   font-family: 'Arial Black', Gadget, sans-serif;
-   font-size: 11px;
-   text-transform: uppercase;
-   letter-spacing: 3px;
-   border-top: 3px solid crimson;
-   margin-top: 150px;
-   box-sizing: border-box;
-   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
-footer p { margin: 8px 0; opacity: 0.7; }
-.footer-student-id { font-weight: normal; color: crimson; }
-
-.sekcja-boxow { margin-top: 200px; margin-bottom: 200px; display: flex; justify-content: center; gap: 30px; padding: 60px 20px; width: 100%; box-sizing: border-box; overflow: hidden; }
-.kafelek-link { text-decoration: none; display: block; }
-
-/* KAFELKI - ANIMACJA */
-.kafelek {
-   background-color: #000000;
-   border: 2px solid #1a1a1a;
-   width: 350px;
-   height: 220px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   padding: 20px;
-   box-sizing: border-box;
-   text-align: center;
-   cursor: pointer;
-   opacity: 0;
-   transform: translateX(100px);
-   transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.kafelek.wlecial { opacity: 1; transform: translateX(0); }
-.kafelek span { color: crimson; font-family: 'Arial Black', Gadget, sans-serif; font-size: 18px; text-transform: uppercase; transition: color 0.4s ease; }
-.kafelek:hover { transform: translateY(-10px) scale(1.02) !important; border-color: crimson; box-shadow: 0px 10px 25px rgba(220, 20, 60, 0.3); }
-.kafelek:hover span { color: #ffffff; }
-
-.wielki-naglowek-cv { text-align: center; text-transform: uppercase; font-family: 'Arial Black', Gadget, sans-serif; font-size: 3rem; color: crimson; margin-top: 200px; margin-bottom: 110px; }
-.o-mnie-sekcja { padding: 50px; max-width: 900px; margin: 100px auto; background: rgba(0, 0, 0, 0.75); border: 2px solid crimson; border-radius: 15px; }
-.o-mnie-sekcja li { margin-bottom: 20px; font-size: 1.2rem; line-height: 1.6; color: #ffffff; }
-.o-mnie-sekcja li strong { color: crimson; }
-
-.kontakt-sekcja { text-align: center; margin-top: 150px; margin-bottom: 150px; padding: 40px; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 15px; }
-.kontakt-sekcja h3 { color: crimson; text-transform: uppercase; font-family: 'Arial Black', Gadget, sans-serif; font-size: 3.5rem; letter-spacing: 2px; margin-bottom: 30px; }
-.kontakt-kontener { display: flex; justify-content: center; gap: 50px; }
-.kontakt-item { display: flex; align-items: center; gap: 10px; color: white; text-decoration: none; font-size: 1.7rem; transition: color 0.3s ease; }
-.kontakt-item:hover { color: crimson; }
-.icon { font-weight: bold; color: crimson; border: 1px solid crimson; padding: 5px 10px; border-radius: 5px; }
-
-.kontakt-lewa { display: flex; flex-direction: column; justify-content: center; margin-top: -60px; }
-.kontakt-dane-pionowe { display: flex; flex-direction: column; gap: 15px; }
-.kontakt-prawa { display: flex; align-items: center; justify-content: center; }
-.zdjecie-kontakt { height: 250px; width: auto; border-radius: 15px; object-fit: cover; }
-.kontakt-link { color: white; text-decoration: none; font-size: 1.5rem; display: flex; align-items: center; gap: 15px; }
-.kontakt-link:hover { color: crimson; cursor: pointer; }
-html { scroll-behavior: smooth; }
-
-/* KARUZELA WORK */
-.recent-title { text-align: center; color: crimson; font-family: 'Arial Black', Gadget, sans-serif; font-size: 3rem; text-transform: uppercase; margin: 120px 0 40px 0; }
-.section-title { font-family: 'Arial Black', 'Impact', sans-serif; color: #ff007f; font-size: 3rem; text-transform: uppercase; text-align: center; letter-spacing: 2px; margin-bottom: 30px; }
-.carousel-container { position: relative; max-width: 90%; margin: 0 auto; display: flex; align-items: center; }
-.carousel-track { display: flex; gap: 15px; overflow-x: hidden; scroll-behavior: smooth; padding: 10px 0; }
-.carousel-track::-webkit-scrollbar { display: none; }
-.carousel-track a { flex: 0 0 auto; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.carousel-track img { width: 220px; height: 140px; object-fit: cover; border-radius: 12px; border: 2px solid rgba(255,0,127,0.3); box-shadow: 0 4px 15px rgba(0,0,0,0.5); display: block; transition: 0.3s; }
-.carousel-track a:hover { transform: scale(1.1); z-index: 10; box-shadow: 0 0 20px #ff007f; }
-.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.7); color: #ff007f; border: 2px solid #ff007f; font-size: 2rem; padding: 10px 15px; cursor: pointer; border-radius: 50%; z-index: 100; transition: all 0.3s ease; }
-.carousel-btn:hover { background-color: #ff007f; color: #fff; box-shadow: 0 0 15px #ff007f; }
-.prev-btn { left: -25px; }
-.next-btn { right: -25px; }
-
-/* GALERIA PORTFOLIO */
-.portfolio-galeria { padding: 80px 5%; position: relative; z-index: 2; }
-.galeria-grid { column-count: 4; column-gap: 20px; }
-.galeria-grid img { width: 100%; margin-bottom: 20px; border-radius: 15px; display: block; break-inside: avoid; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
-.galeria-grid img:hover { transform: scale(1.03); box-shadow: 0 12px 30px rgba(255,255,255,0.2); }
-
-/* LIGHTBOX */
-.lightbox { display: none; position: fixed; z-index: 9999; inset: 0; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; padding: 20px; }
-.lightbox img { max-width: 90%; max-height: 90vh; border-radius: 15px; animation: zoomIn 0.3s ease; }
-.close-lightbox { position: absolute; top: 20px; right: 35px; color: white; font-size: 50px; cursor: pointer; }
-@keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-/* ==========================================================================
-   OD TEGO MIEJSCA SĄ STYLOWANE WYŁĄCZNIE ELEMENTY DLA PODSTRONY SERVICES
-   ========================================================================== */
-.services-page .sekcja-tytul { text-align:center; font-size:3rem; color:#ff0000; text-transform:uppercase; margin:80px 0 50px; text-shadow: 0 0 10px #ff000d, 0 0 20px #ff0055; }
-.services-page .services-intro { max-width:1000px; margin:100px auto; text-align:center; padding:0 20px; }
-.services-page .services-intro p { color:white; line-height:1.8; font-size:1.1rem; }
-.services-page .service-showcase { width:90%; margin:100px auto; }
-.services-page .service-row { display:flex; align-items:center; justify-content:center; gap:60px; margin:120px 0; }
-.services-page .service-row.reverse { flex-direction:row-reverse; }
-.services-page .service-info { flex:1; max-width:700px; background:rgba(0,0,0,.45); border:2px solid #ff0000; border-radius:25px; padding:50px; box-shadow: 0 0 20px rgba(255,0,0,.5); backdrop-filter:blur(8px); }
-.services-page .service-info h2 { text-align:center; color:#ff0000; font-size:3rem; text-transform:uppercase; margin-bottom:25px; text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
-.services-page .service-info p { color:white; text-align:center; line-height:1.8; font-size:1.15rem; }
-.services-page .service-row img { flex:1; max-width:500px; width:100%; height:500px; object-fit:cover; border-radius:25px; border:2px solid #ff0000; box-shadow: 0 0 25px rgba(255,0,0,.6); transition:.4s; }
-.services-page .service-row img:hover { transform:scale(1.04); }
-
-/* DESIGN PROCESS KAFELKI (TYLKO SERVICES) */
-.services-page .services-process-section { max-width: 1200px; margin: 120px auto; padding: 0 20px; box-sizing: border-box; }
-.services-page .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 50px; }
-.services-page .process-box { background: rgba(0, 0, 0, 0.45); border: 2px solid #ff0000; border-radius: 20px; padding: 35px 25px; text-align: left; backdrop-filter: blur(8px); box-shadow: 0 0 15px rgba(255, 0, 0, 0.2); transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; }
-.services-page .process-box:hover { transform: translateY(-10px); border-color: #ff0055; box-shadow: 0 0 25px rgba(255, 0, 21, 0.6); }
-.services-page .process-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-.services-page .process-number { font-family: 'Arial Black', Gadget, sans-serif; font-size: 2.3rem; color: #ff0000; line-height: 1; text-shadow: 0 0 10px rgba(255, 0, 0, 0.6); }
-.services-page .process-icon { font-size: 1.8rem; color: rgba(255, 255, 255, 0.6); transition: color 0.4s ease; }
-.services-page .process-box:hover .process-icon { color: #ff0055; }
-.services-page .process-box h3 { font-family: 'Arial Black', Gadget, sans-serif; color: white; font-size: 1.35rem; text-transform: uppercase; margin: 0 0 12px 0; letter-spacing: 1px; }
-.services-page .process-box p { color: #e0e0e0; font-size: 0.95rem; line-height: 1.6; margin: 0; }
-
-/* RESPONSIVE I MEDIA QUERIES (GLOBALNE + IZOLOWANE) */
-@media (max-width: 1024px) {
-    .services-page .process-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .galeria-grid { column-count: 3; }
-}
-
-@media (max-width: 900px) {
-    .services-page .service-row, .services-page .service-row.reverse { flex-direction: column; gap: 30px; margin: 80px auto; }
-    .services-page .service-info { width: 100%; max-width: 100%; padding: 30px; }
-    .services-page .service-row img { width: 100%; max-width: 100%; height: auto; max-height: 500px; }
-    .services-page .service-info h2 { font-size: 2rem; }
-    .services-page .service-info p { font-size: 1rem; }
-}
-
-@media only screen and (max-width: 768px) {
-    html, body { overflow-x: hidden; }
-    .hamburger { display: block; position: absolute; top: 20px; right: 20px; z-index: 15; background: rgba(0, 0, 0, 0.8); color: white; border: 1px solid white; padding: 10px 15px; font-family: 'Arial Black', sans-serif; font-size: 14px; cursor: pointer; }
-    .close-btn { display: block; align-self: flex-end; background: none; border: none; color: white; font-size: 35px; cursor: pointer; margin-bottom: 40px; font-family: Arial, sans-serif; }
-    .menu-gorne { display: none; flex-direction: column; justify-content: flex-start; align-items: center; position: fixed; top: 0; right: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.95); padding: 30px; box-sizing: border-box; z-index: 100; text-align: center; }
-    .menu-gorne.active { display: flex; }
-    .separator { display: none; }
-    .menu-link { font-size: 26px; margin: 15px 0; width: 100%; display: block; }
-
-    .wizytowka { position: absolute !important; top: 52% !important; left: 6% !important; right: 6% !important; transform: translateY(-50%); width: 88% !important; }
-    .glowny-napis { font-size: 58px !important; line-height: 1 !important; white-space: normal !important; word-break: keep-all !important; overflow-wrap: normal !important; }
-    .podnapis { font-size: 18px !important; letter-spacing: 2px; }
-
-    .sekcja-boxow { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 25px !important; width: 100% !important; padding: 20px 10px !important; overflow: visible !important; }
-    .kafelek-link { width: 100% !important; display: flex !important; justify-content: center !important; }
-    .kafelek { width: 90% !important; max-width: 350px !important; height: 200px !important; opacity: 1 !important; transform: translateX(0) !important; }
-
-    .services-page .kontakt-sekcja { flex-direction: column !important; align-items: center !important; gap: 20px; text-align: center; }
-    .services-page .kontakt-lewa { width: 100%; text-align: center; }
-    .services-page .kontakt-prawa { width: 100%; display: flex; justify-content: center; }
-    .services-page .zdjecie-kontakt { max-width: 200px; height: auto; }
-    .services-page .kontakt-lewa h3 { font-size: 2.5rem; margin-bottom: 20px; text-align: center; }
-    .services-page .kontakt-link { justify-content: center; }
-     
-    .galeria-grid { column-count: 2; }
-}
-
-@media (max-width: 650px) {
-    .services-page .services-process-section { margin: 60px auto; }
-    .services-page .process-grid { grid-template-columns: 1fr; gap: 25px; position: relative; }
-    .services-page .process-grid::before { content: ''; position: absolute; left: 30px; top: 20px; bottom: 20px; width: 2px; background: linear-gradient(to bottom, #ff0000, #ff0055, #ff0000); opacity: 0.4; z-index: 0; }
-    .services-page .process-box { padding: 25px 20px 25px 65px; z-index: 1; position: relative; }
-    .services-page .process-header { margin-bottom: 5px; position: static; }
-    .services-page .process-number { position: absolute; left: 15px; top: 24px; font-size: 1.6rem; }
-    .services-page .process-icon { font-size: 1.3rem; }
-    .services-page .process-box h3 { font-size: 1.2rem; margin-bottom: 5px; }
-    .services-page .process-box p { font-size: 0.9rem; }
-}
-
-@media (max-width: 500px) {
-    .galeria-grid { column-count: 1; }
-}
-
-/* STYLOWANIE SEKCOJI KONTAKTU DLA PODSTRONY PORTFOLIO NA SMARTFONACH */
-@media only screen and (max-width: 768px) {
-    .portfolio-page .kontakt-sekcja { flex-direction: column !important; align-items: center !important; gap: 20px; text-align: center; }
-    .portfolio-page .kontakt-lewa { width: 100%; text-align: center; }
-    .portfolio-page .kontakt-prawa { width: 100%; display: flex; justify-content: center; }
-    .portfolio-page .zdjecie-kontakt { max-width: 200px; height: auto; }
-    .portfolio-page .kontakt-lewa h3 { font-size: 2.5rem; margin-bottom: 20px; text-align: center; }
-    .portfolio-page .kontakt-link { justify-content: center; }
-}
-
-/* STYLOWANIE SEKCJI KONTAKTU DLA STRONY GŁÓWNEJ NA SMARTFONACH */
-@media only screen and (max-width: 768px) {
-    .home-page .kontakt-sekcja { flex-direction: column !important; align-items: center !important; gap: 20px; text-align: center; }
-    .home-page .kontakt-lewa { width: 100%; text-align: center; }
-    .home-page .kontakt-prawa { width: 100%; display: flex; justify-content: center; }
-    .home-page .zdjecie-kontakt { max-width: 200px; height: auto; }
-    .home-page .kontakt-lewa h3 { font-size: 2.5rem; margin-bottom: 20px; text-align: center; }
-    .home-page .kontakt-link { justify-content: center; }
-}/* ==========================================================================
-   STYLE DLA PODSTRONY FAQ
-   ========================================================================== */
-
-.faq-kontener {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 40px 20px;
-    background: rgba(255, 255, 255, 0.07);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-}
-
-.faq-naglowek {
-    text-align: center;
-    font-size: 2.2rem;
-    color: #fff;
-    margin-bottom: 40px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
-
-.faq-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.faq-item {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.faq-pytanie {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 25px;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: left;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.faq-pytanie i {
-    font-size: 1rem;
-    transition: transform 0.3s ease;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.faq-pytanie.active {
-    color: #ff3366; 
-}
-
-.faq-pytanie.active i {
-    transform: rotate(180deg);
-    color: #ff3366;
-}
-
-.faq-odpowiedz {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    background: rgba(0, 0, 0, 0.15);
-}
-
-.faq-odpowiedz p {
-    padding: 0 25px 20px 25px;
-    color: #e0e0e0;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* RESPONSYWNOŚĆ DLA SEKCJI FAQ I KONTAKTU NA TELEFONIE */
-@media only screen and (max-width: 768px) {
-    .faq-kontener {
-        margin: 30px 15px;
-        padding: 25px 15px;
-    }
-
-    .faq-naglowek {
-        font-size: 1.6rem;
-        margin-bottom: 25px;
-    }
-
-    .faq-pytanie {
-        padding: 15px 20px;
-        font-size: 1rem;
-    }
-
-    .faq-odpowiedz p {
-        padding: 0 20px 15px 20px;
-        font-size: 0.9rem;
-    }
-
-    /* Dopasowanie sekcji kontaktu analogicznie do poprzednich stron */
-    .faq-page .kontakt-sekcja {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 20px;
-        text-align: center;
-    }
-
-    .faq-page .kontakt-lewa {
-        width: 100%;
-        text-align: center;
-    }
-
-    .faq-page .kontakt-prawa {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .faq-page .zdjecie-kontakt {
-        max-width: 200px;
-        height: auto;
-    }
-
-    .faq-page .kontakt-lewa h3 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .faq-page .kontakt-link {
-        justify-content: center;
-    }
-}
-
-
-
-
-
-/* ==========================================================================
-   SEKCJA MY RECENT WORK - POD KAFELKAMI
-   ========================================================================== */
-
-.recent-work-sekcja {
-    max-width: 1200px;
-    margin: 60px auto 40px auto;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.recent-work-naglowek {
-    font-size: 2.2rem;
-    color: #fff;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-shadow: 0 2px 10px rgba(255, 0, 85, 0.3);
-}
-
-.recent-work-pasek {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    justify-content: center;
-    align-items: center;
-}
-
-.recent-work-link {
-    display: block;
-    text-decoration: none;
-    border-radius: 12px;
-    overflow: hidden; 
-    position: relative;
-    border: 2px solid rgba(255, 0, 85, 0.4);
-    box-shadow: 0 0 12px rgba(255, 0, 85, 0.2);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.recent-work-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease; 
-}
-
-/* INTERAKCJA: MYSZKA NAJEŻDŻA NA LINK */
-.recent-work-link:hover {
-    border-color: #ff0055;
-    box-shadow: 0 0 20px #ff0055, 0 0 40px rgba(255, 0, 85, 0.6);
-    cursor: pointer;
-}
-
-/* EFEKT LEKKIEGO POWIĘKSZENIA ZDJĘCIA WEWNĄTRZ RAMKI */
-.recent-work-link:hover .recent-work-img {
-    transform: scale(1.06);
-}
-
-/* DOPASOWANIE RESPONSYWNE DLA SMARTFONÓW */
-@media only screen and (max-width: 900px) {
-    .recent-work-pasek {
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 20px;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .recent-work-sekcja {
-        margin: 40px auto 20px auto;
-    }
-
-    .recent-work-naglowek {
-        font-size: 1.7rem;
-        margin-bottom: 20px;
-    }
-    
-    .recent-work-pasek {
-        grid-template-columns: 1fr; 
-        gap: 15px;
-    }
-
-    .recent-work-img {
-        height: 200px;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje Portfolio</title>
+    <style>
+        body { background-color: black; margin: 0px; color: white; font-family: Arial, sans-serif; }
+        header { position: relative; width: 100%; height: 100vh; overflow: hidden; margin: 0px; }
+
+        /* Efekt blura przeniesiony na warstwę wyżej (header::after) */
+        .video-tlo { 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            min-width: 100%; 
+            min-height: 100%; 
+            object-fit: cover; 
+            z-index: 1; 
+            transform: translate(-50%, -50%) scale(1.1); 
+        }
+
+        /* Nowa nakładka rozmywająca na wideo w nagłówku */
+        header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 2; /* Nad wideo, ale pod tekstem menu i wizytówki */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            pointer-events: none; /* Pozwala klikać elementy pod spodem */
+        }
+
+        .hamburger, .close-btn { display: none; }
+        .menu-gorne { position: absolute; top: 30px; right: 0; text-align: right; padding-right: 50px; z-index: 10; width: 100%; }
+        .ukryty-naglowek { display: none; }
+        .menu-link { color: white; text-decoration: none; text-transform: uppercase; font-size: 30px; font-family: 'Arial Black', Gadget, sans-serif; letter-spacing: 1px; transition: color 0.3s ease; margin: 0 12px; display: inline-block; }
+        .menu-link:hover { color: #000000; cursor: pointer; }
+        .sidebar { color: white; font-size: 18px; font-family: 'Arial Black', Gadget, sans-serif; }
+
+        @media (max-width: 768px) {
+           .hamburger { display: block; position: absolute; top: 20px; right: 20px; z-index: 15; background: rgba(0, 0, 0, 0.8); color: white; border: 1px solid white; padding: 10px 15px; font-family: 'Arial Black', sans-serif; font-size: 14px; cursor: pointer; }
+           .close-btn { display: block; align-self: flex-end; background: none; border: none; color: white; font-size: 35px; cursor: pointer; margin-bottom: 40px; font-family: Arial, sans-serif; }
+           .menu-gorne { display: none; flex-direction: column; justify-content: flex-start; align-items: center; position: fixed; top: 0; right: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.95); padding: 30px; box-sizing: border-box; z-index: 100; text-align: center; }
+           .menu-gorne.active { display: flex; }
+           .separator { display: none; }
+           .menu-link { font-size: 26px; margin: 15px 0; width: 100%; display: block; }
+        }
+
+        .kontener-tla { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -2; background-color: black; overflow: hidden; }
+
+        /* Efekt blura przeniesiony na kontener-tla::after */
+        .nowe-tlo-strony { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100vh; 
+            object-fit: cover; 
+            opacity: 0.15; 
+        }
+
+        /* Nowa nakładka rozmywająca na drugie wideo w tle strony */
+        .kontener-tla::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1; /* Nad wideo z opacity 0.15 */
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            pointer-events: none;
+        }
+
+        .wizytowka { position: absolute; bottom: 300px; left: 50px; z-index: 5; text-align: left; }
+        .glowny-napis { color: white; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 150px; font-weight: 700; margin: 0px 0px 5px 0px; }
+        .podnapis { color: white; font-family: Arial, sans-serif; font-size: 40px; text-transform: uppercase; letter-spacing: 4px; margin: 0px; opacity: 0.9; }
+
+        footer {
+           display: block;
+           clear: both;
+           position: relative;
+           width: 100%;
+           background-color: #0b0b0b;
+           color: #ffffff;
+           text-align: center;
+           padding: 35px 20px;
+           font-family: 'Arial Black', Gadget, sans-serif;
+           font-size: 11px;
+           text-transform: uppercase;
+           letter-spacing: 3px;
+           border-top: 3px solid crimson;
+           margin-top: 150px;
+           box-sizing: border-box;
+           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        footer p { margin: 8px 0; opacity: 0.7; }
+        .footer-student-id { font-weight: normal; color: crimson; }
+
+        .sekcja-boxow { margin-top: 200px; margin-bottom: 200px; display: flex; justify-content: center; gap: 30px; padding: 60px 20px; width: 100%; box-sizing: border-box; overflow: hidden; }
+        .kafelek-link { text-decoration: none; display: block; }
+
+        /* KAFELKI - ANIMACJA */
+        .kafelek {
+           background-color: #000000;
+           border: 2px solid #1a1a1a;
+           width: 350px;
+           height: 220px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           padding: 20px;
+           box-sizing: border-box;
+           text-align: center;
+           cursor: pointer;
+           opacity: 0;
+           transform: translateX(100px);
+           transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .kafelek.wlecial { opacity: 1; transform: translateX(0); }
+        .kafelek span { color: crimson; font-family: 'Arial Black', Gadget, sans-serif; font-size: 18px; text-transform: uppercase; transition: color 0.4s ease; }
+        .kafelek:hover { transform: translateY(-10px) scale(1.02) !important; border-color: crimson; box-shadow: 0px 10px 25px rgba(220, 20, 60, 0.3); }
+        .kafelek:hover span { color: #ffffff; }
+
+        .wielki-naglowek-cv { text-align: center; text-transform: uppercase; font-family: 'Arial Black', Gadget, sans-serif; font-size: 3rem; color: crimson; margin-top: 200px; margin-bottom: 110px; }
+        .o-mnie-sekcja { padding: 50px; max-width: 900px; margin: 100px auto; background: rgba(0, 0, 0, 0.75); border: 2px solid crimson; border-radius: 15px; }
+        .o-mnie-sekcja li { margin-bottom: 20px; font-size: 1.2rem; line-height: 1.6; color: #ffffff; }
+        .o-mnie-sekcja li strong { color: crimson; }
+
+        .kontakt-sekcja { text-align: center; margin-top: 150px; margin-bottom: 150px; padding: 40px; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 15px; }
+        .kontakt-sekcja h3 { color: crimson; text-transform: uppercase; font-family: 'Arial Black', Gadget, sans-serif; font-size: 3.5rem; letter-spacing: 2px; margin-bottom: 30px; }
+        .kontakt-kontener { display: flex; justify-content: center; gap: 50px; }
+        .kontakt-item { display: flex; align-items: center; gap: 10px; color: white; text-decoration: none; font-size: 1.7rem; transition: color 0.3s ease; }
+        .kontakt-item:hover { color: crimson; }
+        .icon { font-weight: bold; color: crimson; border: 1px solid crimson; padding: 5px 10px; border-radius: 5px; }
+
+        .kontakt-lewa { display: flex; flex-direction: column; justify-content: center; margin-top: -60px; }
+        .kontakt-dane-pionowe { display: flex; flex-direction: column; gap: 15px; }
+        .kontakt-prawa { display: flex; align-items: center; justify-content: center; }
+        .zdjecie-kontakt { height: 250px; width: auto; border-radius: 15px; object-fit: cover; }
+        .kontakt-link { color: white; text-decoration: none; font-size: 1.5rem; display: flex; align-items: center; gap: 15px; }
+        .kontakt-link:hover { color: crimson; cursor: pointer; }
+        html { scroll-behavior: smooth; }
+
+        /* KARUZELA WORK */
+        .recent-title { text-align: center; color: crimson; font-family: 'Arial Black', Gadget, sans-serif; font-size: 3rem; text-transform: uppercase; margin: 120px 0 40px 0; }
+        .section-title { font-family: 'Arial Black', 'Impact', sans-serif; color: #ff007f; font-size: 3rem; text-transform: uppercase; text-align: center; letter-spacing: 2px; margin-bottom: 30px; }
+        .carousel-container { position: relative; max-width: 90%; margin: 0 auto; display: flex; align-items: center; }
+        .carousel-track { display: flex; gap: 15px; overflow-x: hidden; scroll-behavior: smooth; padding: 10px 0; }
+        .carousel-track::-webkit-scrollbar { display: none; }
+        .carousel-track a { flex: 0 0 auto; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .carousel-track img { width: 220px; height: 140px; object-fit: cover; border-radius: 12px; border: 2px solid rgba(255,0,127,0.3); box-shadow: 0 4px 15px rgba(0,0,0,0.5); display: block; transition: 0.3s; }
+        .carousel-track a:hover { transform: scale(1.1); z-index: 10; box-shadow: 0 0 20px #ff007f; }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.7); color: #ff007f; border: 2px solid #ff007f; font-size: 2rem; padding: 10px 15px; cursor: pointer; border-radius: 50%; z-index: 100; transition: all 0.3s ease; }
+        .carousel-btn:hover { background-color: #ff007f; color: #fff; box-shadow: 0 0 15px #ff007f; }
+        .prev-btn { left: -25px; }
+        .next-btn { right: -25px; }
+
+        /* GALERIA PORTFOLIO */
+        .portfolio-galeria { padding: 80px 5%; position: relative; z-index: 2; }
+        .galeria-grid { column-count: 4; column-gap: 20px; }
+        .galeria-grid img { width: 100%; margin-bottom: 20px; border-radius: 15px; display: block; break-inside: avoid; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+        .galeria-grid img:hover { transform: scale(1.03); box-shadow: 0 12px 30px rgba(255,255,255,0.2); }
+
+        /* LIGHTBOX */
+        .lightbox { display: none; position: fixed; z-index: 9999; inset: 0; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; padding: 20px; }
+        .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 15px; animation: zoomIn 0.3s ease; }
+        .close-lightbox { position: absolute; top: 20px; right: 35px; color: white; font-size: 50px; cursor: pointer; }
+        @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        /* ==========================================================================
+           OD TEGO MIEJSCA SĄ STYLOWANE WYŁĄCZNIE ELEMENTY DLA PODSTRONY SERVICES
+           ========================================================================== */
+        .services-page .sekcja-tytul { text-align:center; font-size:3rem; color:#ff0000; text-transform:uppercase; margin:80px 0 50px; text-shadow: 0 0 10px #ff000d, 0 0 20px #ff0055; }
+        .services-page .services-intro { max-width:1000px; margin:100px auto; text-align:center; padding:0 20px; }
+        .services-page .services-intro p { color:white; line-height:1.8; font-size:1.1rem; }
+        .services-page .service-showcase { width:90%; margin:100px auto; }
+        .services-page .service-row { display:flex; align-items:center; justify-content:center; gap:60px; margin:120px 0; }
+        .services-page .service-row.reverse { flex-direction:row-reverse; }
+        .services-page .service-info { flex:1; max-width:700px; background:rgba(0,0,0,.45); border:2px solid #ff0000; border-radius:25px; padding:50px; box-shadow: 0 0 20px rgba(255,0,0,.5); backdrop-filter:blur(8px); }
+        .services-page .service-info h2 { text-align:center; color:#ff0000; font-size:3rem; text-transform:uppercase; margin-bottom:25px; text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
+        .services-page .service-info p { color:white; text-align:center; line-height:1.8; font-size:1.15rem; }
+        .services-page .service-row img { flex:1; max-width:500px; width:100%; height:500px; object-fit:cover; border-radius:25px; border:2px solid #ff0000; box-shadow: 0 0 25px rgba(255,0,0,.6); transition:.4s; }
+        .services-page .service-row img:hover { transform:scale(1.04); }
+
+        /* DESIGN PROCESS KAFELKI (TYLKO SERVICES) */
+        .services-page .services-process-section { max-width: 1200px; margin: 120px auto; padding: 0 20px; box-sizing: border-box; }
+        .services-page .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 50px; }
+        .services-page .process-box { background: rgba(0, 0, 0, 0.45); border: 2px solid #ff0000; border-radius: 20px; padding: 35px 25px; text-align: left; backdrop-filter: blur(8px); box-shadow: 0 0 15px rgba(255, 0, 0, 0.2); transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; }
+        .services-page .process-box:hover { transform: translateY(-10px); border-color: #ff0055; box-shadow: 0 0 25px rgba(255, 0, 21, 0.6); }
+        .services-page .process-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .services-page .process-number { font-family: 'Arial Black', Gadget, sans-serif; font-size: 2.3rem; color: #ff0000; line-height: 1; text-shadow: 0 0 10px rgba(255, 0, 0, 0.6); }
+        .services-page .process-icon { font-size: 1.8rem; color: rgba(255, 255, 255, 0.6); transition: color 0.4s ease; }
+        .services-page .process-box:hover .process-icon { color: #ff0055; }
+        .services-page .process-box h3 { font-family: 'Arial Black', Gadget, sans-serif; color: white; font-size: 1.35rem; text-transform: uppercase; margin: 0 0 12px 0; letter-spacing: 1px; }
+        .services-page .process-box p { color: #e0e0e0; font-size: 0.95rem; line-height: 1.6; margin: 0; }
+
+        /* RESPONSIVE I MEDIA QUERIES (GLOBALNE + IZOLOWANE) */
+        @media (max-width: 1024px) {
+            .services-page .process-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .galeria-grid { column-count: 3; }
+        }
+
+        @media (max-width: 900px) {
+            .services-page .service-row, .services-page .service-row.reverse { flex-direction: column; gap: 30px; margin: 80px auto; }
+            .services-page .service-info { width: 100%; max-width: 100%; padding: 30px; }
+            .services-page .service-row img { width: 100%; max-width: 100%; height: auto; max-height: 500px; }
+            .services-page .service-info h2 { font-size: 2rem; }
+            .services-page .service-info p { font-size: 1rem; }
+        }
+
+        @media only screen and (max-width: 768px) {
+            html, body { overflow-x: hidden; }
+            .hamburger { display: block; position: absolute; top: 20px; right: 20px; z-index: 15; background: rgba(0, 0, 0, 0.8); color: white; border: 1px solid white; padding: 10px 15px; font-family: 'Arial Black', sans-serif; font-size: 14px; cursor: pointer; }
+            .close-btn { display: block; align-self: flex-end; background: none; border: none; color: white; font-size: 35px; cursor: pointer; margin-bottom: 40px; font-family: Arial, sans-serif; }
+            .menu-gorne { display: none; flex-direction: column; justify-content: flex-start; align-items: center; position: fixed; top: 0; right: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.95); padding: 30px; box-sizing: border-box; z-index: 100; text-align: center; }
+            .menu-gorne.active { display: flex; }
+            .separator { display: none; }
+            .menu-link { font-size: 26px; margin: 15px 0; width: 100%; display: block; }
+
+            .wizytowka { position: absolute !important; top: 52% !important; left: 6% !important; right: 6% !important; transform: translateY(-50%); width: 88% !important; }
+            .glowny-napis { font-size: 58px !important; line-height: 1 !important; white-space: normal !important; word-break: keep-all !important; overflow-wrap: normal !important; }
+            .podnapis { font-size: 18px !important; letter-spacing: 2px; }
+
+            .sekcja-boxow { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 25px !important; width: 100% !important; padding: 20px 10px !important; overflow: visible !important; }
+            .kafelek-link { width: 100% !important; display: flex !important; justify-content: center !important; }
+            .kafelek { width: 90% !important; max-width: 350px !important; height: 200px !important; opacity: 1 !important; transform: translateX(0) !important; }
+
+            .services-page .kontakt-sekcja { flex-direction: column !important; align-items: center !important; gap: 20px; text-align: center; }
+            .services-page .kontakt-lewa { width: 100%; text-align: center; }
+            .services-page .kontakt-prawa { width: 100%; display: flex; justify-content: center; }
+            .services-page .zdjecie-kontakt { max-width: 200px; height: auto; }
+            .services-page .kontakt-lewa h3 { font-size: 2.5rem; margin-bottom: 20px; text-align: center; }
+            .services-page .kontakt-link { justify-content: center; }
+              
+            .galeria-grid { column-count: 2; }
+        }
+
+        @media (max-width: 650px) {
+            .services-page .services-process-section { margin: 60px auto; }
+            .services-page .process-grid { grid-template-columns: 1fr; gap: 25px; position: relative; }
+            .services-page .process-grid::before { content: ''; position: absolute; left: 30px; top: 20px; bottom: 20px; width: 2px; background: linear-gradient(to bottom, #ff0000, #ff0055, #ff0000); opacity: 0.4; z-index: 0; }
+            .services-page .process-box { padding: 25px 20px 25px 65px; z-index: 1; position: relative; }
+            .services-page .process-header { margin-bottom: 5px; position: static; }
+            .services-page .process-number { position: absolute; left: 15px; top: 24px; font-size: 1.6rem; }
+            .services-page .process-icon { font-size: 1.3rem; }
+            .services-page .process-box h3 { font-size: 1.2rem; margin-bottom: 5px; }
+            .services-page .process-box p { font-size: 0.9rem; }
+        }
+
+        @media (max-width: 500px) {
+            .galeria-grid { column-count: 1; }
+        }
+
+        /* STYLOWANIE SEKCOJI KONTAKTU DLA PODSTRONY PORTFOLIO NA SMARTFONACH */
+        @media only screen and (max-width: 768px) {
+            .portfolio-page .kontakt-sekcja { flex-direction: column !important; align-items: center !important; gap: 20px; text-align: center; }
+            .portfolio-page .kontakt-lewa { width: 100%; text-align: center; }
+            .portfolio-page .kontakt-prawa { width: 100%; display: flex; justify-content: center; }
+            .portfolio-page .zdjecie-kontakt { max-width: 200px; height: auto; }
+            .portfolio-page .kontakt-lewa h3 { font-size: 2.5rem; margin-bottom: 20px; text-align: center; }
+            .portfolio-page .kontakt-link { justify-content: center; }
+        }
+
+        /* STYLOWANIE SEKCJI KONTAKTU DLA STRONY GŁÓWNEJ NA SMARTFONACH */
+        @media only screen and (max-width: 768px) {
+            .home-page .kontakt-sekcja { flex-direction: column !important; align-items: center !important; gap: 20px; text-align: center; }
+            .home-page .kontakt-lewa { width: 100%; text-align: center; }
+            .home-page .kontakt-prawa { width: 100%; display: flex; justify-content: center; }
+            .home-page .zdjecie-kontakt { max-width: 200px; height: auto; }
+            .home-page .kontakt-lewa h3 { font-size: 2.5rem; margin-bottom: 20px; text-align: center; }
+            .home-page .kontakt-link { justify-content: center; }
+        }
+
+        /* ==========================================================================
+           STYLE DLA PODSTRONY FAQ
+           ========================================================================== */
+        .faq-kontener {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .faq-naglowek {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .faq-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .faq-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .faq-pytanie {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .faq-pytanie i {
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .faq-pytanie.active {
+            color: #ff3366; 
+        }
+
+        .faq-pytanie.active i {
+            transform: rotate(180deg);
+            color: #ff3366;
+        }
+
+        .faq-odpowiedz {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .faq-odpowiedz p {
+            padding: 0 25px 20px 25px;
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* RESPONSYWNOŚĆ DLA SEKCJI FAQ I KONTAKTU NA TELEFONIE */
+        @media only screen and (max-width: 768px) {
+            .faq-kontener {
+                margin: 30px 15px;
+                padding: 25px 15px;
+            }
+
+            .faq-naglowek {
+                font-size: 1.6rem;
+                margin-bottom: 25px;
+            }
+
+            .faq-pytanie {
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+
+            .faq-odpowiedz p {
+                padding: 0 20px 15px 20px;
+                font-size: 0.9rem;
+            }
+
+            /* Dopasowanie sekcji kontaktu analogicznie do poprzednich stron */
+            .faq-page .kontakt-sekcja {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .faq-page .kontakt-lewa {
+                width: 100%;
+                text-align: center;
+            }
+
+            .faq-page .kontakt-prawa {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .faq-page .zdjecie-kontakt {
+                max-width: 200px;
+                height: auto;
+            }
+
+            .faq-page .kontakt-lewa h3 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .faq-page .kontakt-link {
+                justify-content: center;
+            }
+        }
+
+        /* ==========================================================================
+           SEKCJA MY RECENT WORK - POD KAFELKAMI
+           ========================================================================== */
+        .recent-work-sekcja {
+            max-width: 1200px;
+            margin: 60px auto 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .recent-work-naglowek {
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(255, 0, 85, 0.3);
+        }
+
+        .recent-work-pasek {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .recent-work-link {
+            display: block;
+            text-decoration: none;
+            border-radius: 12px;
+            overflow: hidden; 
+            position: relative;
+            border: 2px solid rgba(255, 0, 85, 0.4);
+            box-shadow: 0 0 12px rgba(255, 0, 85, 0.2);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .recent-work-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease; 
+        }
+
+        /* INTERAKCJA: MYSZKA NAJEŻDŻA NA LINK */
+        .recent-work-link:hover {
+            border-color: #ff0055;
+            box-shadow: 0 0 20px #ff0055, 0 0 40px rgba(255, 0, 85, 0.6);
+            cursor: pointer;
+        }
+
+        /* EFEKT LEKKIEGO POWIĘKSZENIA ZDJĘCIA WEWNĄTRZ RAMKI */
+        .recent-work-link:hover .recent-work-img {
+            transform: scale(1.06);
+        }
+
+        /* DOPASOWANIE RESPONSYWNE DLA SMARTFONÓW */
+        @media only screen and (max-width: 900px) {
+            .recent-work-pasek {
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 20px;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .recent-work-sekcja {
+                margin: 40px auto 20px auto;
+            }
+
+            .recent-work-naglowek {
+                font-size: 1.7rem;
+                margin-bottom: 20px;
+            }
+            
+            .recent-work-pasek {
+                grid-template-columns: 1fr; 
+                gap: 15px;
+            }
+
+            .recent-work-img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
